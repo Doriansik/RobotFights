@@ -8,42 +8,45 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float rotateSpeed;
 
-
-    [Space]
     [Header("GroundCheck")]
     [SerializeField] private float distanceToGround;
     [SerializeField] private float groundOffset;
 
-    [Space]
     [Header("Crouch Settings")]
-    [SerializeField] private float crouchForce;
     [SerializeField] private float crouchHeight;
-    [SerializeField] private float crouchScaleY;
     [SerializeField] private float crouchLerpSpeed;
     [SerializeField] private float colliderCenterMultiplier;
 
-    [Space]
     [Header("Input Actions")]
     [SerializeField] private InputActionReference actionCrouch;
     [SerializeField] private InputActionReference actionMove;
     [SerializeField] private InputActionReference actionJump;
+    [SerializeField] private InputActionReference actionPunch;
+    [SerializeField] private InputActionReference actionKick;
 
+    [Header("Attack Settings")]
+    [SerializeField] private int punchDamage = 10;
+    [SerializeField] private int kickDamage = 15;
+    [SerializeField] private float attackRange = 2f;
+    [SerializeField] private LayerMask attackLayer;
+    [SerializeField] private float comboMaxTime = 2f;
 
     private Vector2 inputDirection;
     private CapsuleCollider col;
     private Rigidbody rb;
     private Animator animator;
     private float originalHeight;
-    private float startYscale;
     private bool isCrouching;
+
+    private int comboStepPunch = 0;
+    private int comboStepKick = 0;
+    private float lastAttackTime = 0f;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         animator = GetComponent<Animator>();
-
-        startYscale = transform.localScale.y;
         originalHeight = col.height;
     }
 
@@ -53,6 +56,8 @@ public class Player : MonoBehaviour
         HandleJump();
         HandleCrouch();
         HandleRotation();
+        HandlePunchCombo();
+        HandleKick();
     }
 
     private void FixedUpdate()
@@ -63,17 +68,16 @@ public class Player : MonoBehaviour
     private void HandleMovementInput()
     {
         inputDirection = actionMove.action.ReadValue<Vector2>();
-        
         if (inputDirection != Vector2.zero)
         {
-            animator.SetBool("IsWalking", true);
+            animator.SetBool("Movement", true);
         }
         else
         {
-            animator.SetBool("IsWalking", false);
+            animator.SetBool("Movement", false);
+
         }
     }
-
 
     private void HandleRotation()
     {
@@ -81,23 +85,15 @@ public class Player : MonoBehaviour
         {
             float targetY = inputDirection.x > 0 ? 90 : 270;
             Quaternion targetRot = Quaternion.Euler(0, targetY, 0);
-
-            transform.rotation = Quaternion.Lerp(transform.rotation,targetRot,Time.deltaTime * rotateSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * rotateSpeed);
         }
-
     }
-
 
     private void HandleJump()
     {
         if (actionJump.action.triggered && IsGrounded())
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            animator.SetBool("IsJumping", true);
-        }
-        else
-        {
-            animator.SetBool("IsJumping", false);
         }
     }
 
@@ -109,43 +105,79 @@ public class Player : MonoBehaviour
         {
             col.height = Mathf.Lerp(col.height, crouchHeight, Time.deltaTime * crouchLerpSpeed);
             col.center = new Vector3(col.center.x, crouchHeight / colliderCenterMultiplier, col.center.z);
-            animator.SetBool("IsCrounching", true);
-
-            //float multiplierScaleY = 0.5f;
-            //float targetScaleY = startYscale * multiplierScaleY;
-            //Vector3 newScale = transform.localScale;
-            //newScale.y = Mathf.Lerp(newScale.y, targetScaleY, Time.deltaTime * crouchLerpSpeed);
-            //transform.localScale = newScale;
         }
         else
         {
             col.height = Mathf.Lerp(col.height, originalHeight, Time.deltaTime * crouchLerpSpeed);
-            col.center = new Vector3(col.center.x, crouchHeight / colliderCenterMultiplier, col.center.z);
-            animator.SetBool("IsCrounching", false);
-
-            //Vector3 newScale = transform.localScale;
-            //newScale.y = Mathf.Lerp(newScale.y, startYscale, Time.deltaTime * crouchLerpSpeed);
-            //transform.localScale = newScale;
+            col.center = new Vector3(col.center.x, originalHeight / colliderCenterMultiplier, col.center.z);
         }
     }
 
     private void HandleMovement()
     {
-        Vector3 movement = new Vector3(inputDirection.x, 0, 0) * (moveSpeed * Time.deltaTime);
+        Vector3 movement = new Vector3(inputDirection.x, 0, 0) * (moveSpeed * Time.fixedDeltaTime);
         rb.MovePosition(rb.position + movement);
     }
 
     private bool IsGrounded()
     {
-        // Do czasu jak nie bedzie modeli
         Vector3 origin = transform.position + Vector3.up * groundOffset;
-        //////////////////////////////////////////////////////////////////
         bool hit = Physics.Raycast(origin, Vector3.down, out RaycastHit raycastHit, distanceToGround + groundOffset);
-
-
-        //Do testow w edytorze
         Debug.DrawRay(origin, Vector3.down * (distanceToGround + groundOffset), hit ? Color.green : Color.red);
-        /////////////////////////////////////////////////////////////////
         return hit;
+    }
+
+    private void HandlePunchCombo()
+    {
+        if (actionPunch.action.triggered)
+        {
+            if (comboStepPunch != 0 && Time.time - lastAttackTime > comboMaxTime) 
+            {
+                comboStepPunch = 0;
+                animator.SetInteger("ComboStepPunch", 0);
+            }
+            comboStepPunch++;
+            if (comboStepPunch > 3) comboStepPunch = 1;
+
+            animator.SetInteger("ComboStepPunch", comboStepPunch);
+            animator.SetTrigger("Attack");
+
+            PerformAttack(punchDamage);
+            CameraShake.Instance.InduceStress(.125f);
+            lastAttackTime = Time.time;
+        }
+    }
+
+    private void HandleKick()
+    {
+        if (actionKick.action.triggered)
+        {
+            if (comboStepKick != 0 && Time.time - lastAttackTime > comboMaxTime)
+            {
+                comboStepKick = 0;
+                animator.SetInteger("ComboStepKick", 0);
+            }
+            comboStepKick++;
+            if (comboStepKick > 3) comboStepKick = 1;
+                
+            animator.SetInteger("ComboStepKick", comboStepKick);
+            animator.SetTrigger("Kick");
+
+            PerformAttack(kickDamage);
+            CameraShake.Instance.InduceStress(.125f);
+            lastAttackTime = Time.time;
+        }
+    }
+
+    private void PerformAttack(int damage)
+    {
+        Vector3 attackOrigin = transform.position + Vector3.up * 1f;
+        Collider[] hits = Physics.OverlapSphere(attackOrigin + transform.forward * attackRange / 2, attackRange / 2, attackLayer);
+        foreach (Collider hit in hits)
+        {
+            var enemy = hit.GetComponent<Enemy>();
+            if (enemy != null) enemy.TakeDamage(damage);
+        }
+        Debug.DrawRay(attackOrigin, transform.forward * attackRange, Color.red, 0.5f);
     }
 }
