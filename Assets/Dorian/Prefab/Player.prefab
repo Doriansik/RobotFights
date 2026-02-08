@@ -980,6 +980,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHp: 100
   animator: {fileID: 5986379691124104524}
+  player: {fileID: 613265818168082027}
+  slider: {fileID: 0}
 --- !u!114 &613265818168082027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,7 +1009,7 @@ MonoBehaviour:
   actionKick: {fileID: 5791496040624832063, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   punchDamage: 10
   kickDamage: 15
-  attackRange: 0.9
+  attackRange: 1.7
   attackLayer:
     serializedVersion: 2
     m_Bits: 64

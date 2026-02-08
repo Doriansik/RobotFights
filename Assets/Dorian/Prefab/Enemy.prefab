@@ -1901,7 +1901,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   maxHp: 100
+  healOnDeath: 10
   animator: {fileID: 6345930034893637070}
+  enemyAI: {fileID: 5559192920883878745}
 --- !u!114 &5559192920883878745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1918,7 +1920,7 @@ MonoBehaviour:
   moveSpeed: 2.5
   stopDistance: 1.6
   damage: 10
-  attackCooldown: 1
+  attackCooldown: 0.7
   attackRange: 1.7
   attackRadius: 0.6
   targetLayer:

@@ -1,51 +1,51 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHp = 100;
+    [SerializeField] private int healOnDeath = 10;
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyAI enemyAI;
-    [SerializeField] private Slider slider;
 
     public int CurrentHp { get; private set; }
+    public int MaxHp => maxHp;
     public bool IsDead { get; private set; }
 
     private void Awake()
     {
         CurrentHp = maxHp;
-        slider.maxValue = maxHp;
-        slider.value = CurrentHp;
         if (!animator) animator = GetComponent<Animator>();
+        if (!enemyAI) enemyAI = GetComponent<EnemyAI>();
+    }
+
+    private void Start()
+    {
+        EnemyHPUIManager.Instance?.RegisterEnemy(this);
     }
 
     public void TakeDamage(int damage)
     {
+        TakeDamage(damage, null);
+    }
+
+    public void TakeDamage(int damage, PlayerHealth killer)
+    {
         if (IsDead) return;
 
         CurrentHp -= damage;
-        slider.value = CurrentHp;
-
+        EnemyHPUIManager.Instance?.UpdateHp(CurrentHp);
 
         if (CurrentHp <= 0)
         {
             IsDead = true;
-            animator.SetTrigger("Death");
-            enemyAI.enabled = false;
+            EnemyHPUIManager.Instance?.UnregisterEnemy(this);
+
+            if (killer != null) killer.Heal(healOnDeath);
+
+            if (animator) animator.SetTrigger("Death");
+            if (enemyAI) enemyAI.enabled = false;
+
             Destroy(gameObject, 3f);
         }
-    }
-
-    public void Heal(int amount)
-    {
-        if (IsDead) return;
-        CurrentHp += amount;
-        if (CurrentHp > maxHp) CurrentHp = maxHp;
-    }
-
-    public void ResetHp()
-    {
-        IsDead = false;
-        CurrentHp = maxHp;
     }
 }

@@ -42,12 +42,15 @@ public class Player : MonoBehaviour
     private int comboStepKick = 0;
     private float lastAttackTime = 0f;
 
+    private PlayerHealth playerHealth;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         animator = GetComponent<Animator>();
         originalHeight = col.height;
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     private void Update()
@@ -68,15 +71,7 @@ public class Player : MonoBehaviour
     private void HandleMovementInput()
     {
         inputDirection = actionMove.action.ReadValue<Vector2>();
-        if (inputDirection != Vector2.zero)
-        {
-            animator.SetBool("Movement", true);
-        }
-        else
-        {
-            animator.SetBool("Movement", false);
-
-        }
+        animator.SetBool("Movement", inputDirection != Vector2.zero);
     }
 
     private void HandleRotation()
@@ -122,20 +117,19 @@ public class Player : MonoBehaviour
     private bool IsGrounded()
     {
         Vector3 origin = transform.position + Vector3.up * groundOffset;
-        bool hit = Physics.Raycast(origin, Vector3.down, out RaycastHit raycastHit, distanceToGround + groundOffset);
-        Debug.DrawRay(origin, Vector3.down * (distanceToGround + groundOffset), hit ? Color.green : Color.red);
-        return hit;
+        return Physics.Raycast(origin, Vector3.down, distanceToGround + groundOffset);
     }
 
     private void HandlePunchCombo()
     {
         if (actionPunch.action.triggered)
         {
-            if (comboStepPunch != 0 && Time.time - lastAttackTime > comboMaxTime) 
+            if (comboStepPunch != 0 && Time.time - lastAttackTime > comboMaxTime)
             {
                 comboStepPunch = 0;
                 animator.SetInteger("ComboStepPunch", 0);
             }
+
             comboStepPunch++;
             if (comboStepPunch > 3) comboStepPunch = 1;
 
@@ -157,9 +151,10 @@ public class Player : MonoBehaviour
                 comboStepKick = 0;
                 animator.SetInteger("ComboStepKick", 0);
             }
+
             comboStepKick++;
             if (comboStepKick > 3) comboStepKick = 1;
-                
+
             animator.SetInteger("ComboStepKick", comboStepKick);
             animator.SetTrigger("Kick");
 
@@ -172,12 +167,16 @@ public class Player : MonoBehaviour
     private void PerformAttack(int damage)
     {
         Vector3 attackOrigin = transform.position + Vector3.up * 1f;
-        Collider[] hits = Physics.OverlapSphere(attackOrigin + transform.forward * attackRange / 2, attackRange / 2, attackLayer);
+        Collider[] hits = Physics.OverlapSphere(
+            attackOrigin + transform.forward * attackRange / 2f,
+            attackRange / 2f,
+            attackLayer
+        );
+
         foreach (Collider hit in hits)
         {
             var enemy = hit.GetComponent<Enemy>();
-            if (enemy != null) enemy.TakeDamage(damage);
+            if (enemy != null) enemy.TakeDamage(damage, playerHealth);
         }
-        Debug.DrawRay(attackOrigin, transform.forward * attackRange, Color.red, 0.5f);
     }
 }
