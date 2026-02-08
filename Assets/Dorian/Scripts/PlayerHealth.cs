@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private Animator animator;
     [SerializeField] private Player player;
     [SerializeField] private Slider slider;
+    [SerializeField] private GameObject losePanel;
 
     public int CurrentHp { get; private set; }
     public bool IsDead { get; private set; }
@@ -32,6 +33,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             animator.SetTrigger("Death");
             player.enabled = false;
             Destroy(gameObject, 3f);
+            losePanel.SetActive(true);
         }
     }
 
