@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
     [SerializeField] private InputActionReference actionMove;
     [SerializeField] private InputActionReference actionJump;
     [SerializeField] private InputActionReference actionPunch;
-    [SerializeField] private InputActionReference actionKick;
 
     [Header("Attack Settings")]
     [SerializeField] private int punchDamage = 10;
@@ -60,7 +59,6 @@ public class Player : MonoBehaviour
         HandleCrouch();
         HandleRotation();
         HandlePunchCombo();
-        HandleKick();
     }
 
     private void FixedUpdate()
@@ -137,32 +135,12 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Attack");
 
             PerformAttack(punchDamage);
-            CameraShake.Instance.InduceStress(.125f);
+            CameraShake.Instance.InduceStress(.03f);
             lastAttackTime = Time.time;
         }
     }
 
-    private void HandleKick()
-    {
-        if (actionKick.action.triggered)
-        {
-            if (comboStepKick != 0 && Time.time - lastAttackTime > comboMaxTime)
-            {
-                comboStepKick = 0;
-                animator.SetInteger("ComboStepKick", 0);
-            }
-
-            comboStepKick++;
-            if (comboStepKick > 3) comboStepKick = 1;
-
-            animator.SetInteger("ComboStepKick", comboStepKick);
-            animator.SetTrigger("Kick");
-
-            PerformAttack(kickDamage);
-            CameraShake.Instance.InduceStress(.125f);
-            lastAttackTime = Time.time;
-        }
-    }
+    
 
     private void PerformAttack(int damage)
     {
