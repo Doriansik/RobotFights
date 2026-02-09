@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: af60204f6b168ff4f90856e1e06ae2ee
+guid: b943deac7d8e55145b45be2c76e3d21c
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -12,7 +12,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
@@ -22,7 +22,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 0
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: MetalRobot_Idle
+      name: BigMeanGuy_QuickJab
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
-      lastFrame: 38
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
