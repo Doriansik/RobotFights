@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour, IDamageable
             if (animator) animator.SetTrigger("Death");
             if (enemyAI) enemyAI.enabled = false;
 
-            Destroy(gameObject, 3f);
+            Destroy(gameObject);
         }
     }
 }
