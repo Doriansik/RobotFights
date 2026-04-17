@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Awake()
     {
+        if (slider == null && losePanel == null) return;
+
         CurrentHp = maxHp;
         slider.maxValue = maxHp;
         slider.value = CurrentHp;
@@ -22,6 +24,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        if (slider == null && losePanel == null) return;
+
         if (IsDead) return;
 
         CurrentHp -= damage;
@@ -39,6 +43,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void Heal(int amount)
     {
+        if (slider == null && losePanel == null) return;
+
         if (IsDead) return;
 
         CurrentHp += amount;
@@ -49,6 +55,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void ResetHp()
     {
+        if (slider == null && losePanel == null) return;
+
         IsDead = false;
         CurrentHp = maxHp;
         slider.value = CurrentHp;
