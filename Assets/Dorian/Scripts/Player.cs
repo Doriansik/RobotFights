@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
         foreach (Collider hit in hits)
         {
             var enemy = hit.GetComponent<Enemy>();
-            if (enemy != null) enemy.TakeDamage(damage, playerHealth);
+            if (enemy != null) enemy.TakeDamage(damage);
         }
     }
 }
