@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &179201763
+--- !u!1001 &87110484
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -127,58 +127,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.71
+      value: -0.4
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0067006648
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3
+      value: 3.55
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - target: {fileID: 919132149155446097, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       propertyPath: m_Name
-      value: MetalRobot(PodstawoweAnimacje)
+      value: MetalRobot_TPose
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 637629641}
-  m_SourcePrefab: {fileID: 100100000, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
+      addedObject: {fileID: 1917516745}
+  m_SourcePrefab: {fileID: 100100000, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
 --- !u!1 &188436297
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,33 +480,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!1 &637629640 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d32066aff2ac6845803a913ffeb141e, type: 3}
-  m_PrefabInstance: {fileID: 179201763}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &637629641
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637629640}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 59db4720c9486eb4489aada4387196cf, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &718984798
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,6 +870,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164904867}
   m_CullTransparentMesh: 1
+--- !u!1 &1917516744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
+  m_PrefabInstance: {fileID: 87110484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1917516745
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917516744}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 59db4720c9486eb4489aada4387196cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -906,4 +906,4 @@ SceneRoots:
   - {fileID: 823837968}
   - {fileID: 997181774}
   - {fileID: 188436301}
-  - {fileID: 179201763}
+  - {fileID: 87110484}
