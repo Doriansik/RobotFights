@@ -78,4 +78,10 @@ public class EnemyAI : MonoBehaviour
 
         lastAttackTime = Time.time;
     }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
+
 }
