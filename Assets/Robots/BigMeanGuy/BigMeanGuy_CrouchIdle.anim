@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BegMeanGuy_CrouchIdle
+  m_Name: BigMeanGuy_CrouchIdle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
