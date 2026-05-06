@@ -3015,10 +3015,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2542998183384044715, guid: a77bb3a82f7f56d4fb84014e44c030f4, type: 3}
-      propertyPath: robotName
-      value: MetalRobot
-      objectReference: {fileID: 0}
     - target: {fileID: 5494827929839799491, guid: a77bb3a82f7f56d4fb84014e44c030f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9

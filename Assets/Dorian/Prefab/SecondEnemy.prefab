@@ -150,7 +150,7 @@ MonoBehaviour:
   attackForwardOffsetMultiplier: 0.5
   animator: {fileID: 6417612082941628852}
   enemyStats: {fileID: 208317505304397515}
-  robotName: Robot_Alpha
+  robotName: SecondEnemy
 --- !u!1001 &605001351255895077
 PrefabInstance:
   m_ObjectHideFlags: 0
