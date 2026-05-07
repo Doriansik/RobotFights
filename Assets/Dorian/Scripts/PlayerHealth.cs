@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public event Action<int> OnHealthChanged;
     public event Action OnDeath;
+    public event Action OnDamageTaken;
 
     [SerializeField] private int maxHp = 100;
     [SerializeField] private float deathDestroyDelay = 3f;
@@ -28,6 +29,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         CurrentHp -= damage;
         OnHealthChanged?.Invoke(CurrentHp);
         SpawnBloodEffect();
+        OnDamageTaken?.Invoke();
 
         if (CurrentHp <= 0)
         {

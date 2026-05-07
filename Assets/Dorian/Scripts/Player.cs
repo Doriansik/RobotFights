@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     private float originalHeight;
     private bool isCrouching;
+    private bool isAttacking;
 
     private int comboStepPunch = 0;
     private int comboStepKick = 0;
@@ -63,16 +64,27 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        HandleMovementInput();
-        HandleJump();
-        HandleCrouch();
-        HandleRotation();
+        if (!isAttacking)
+        {
+            HandleMovementInput();
+            HandleJump();
+            HandleCrouch();
+            HandleRotation();
+        }
+        else
+        {
+            inputDirection = Vector2.zero;
+        }
+
         HandlePunchCombo();
     }
 
     private void FixedUpdate()
     {
-        HandleMovement();
+        if (!isAttacking)
+        {
+            HandleMovement();
+        }
     }
 
     private void HandleMovementInput()
@@ -129,11 +141,15 @@ public class Player : MonoBehaviour
 
     private void HandlePunchCombo()
     {
-        if (inputDirection != Vector2.zero)
-            return;
+        if (isAttacking) return;
+
+        if (inputDirection != Vector2.zero && IsGrounded()) return;
 
         if (actionPunch.action.triggered)
         {
+            isAttacking = true;
+            animator.SetBool("Movement", false);
+
             if (comboStepPunch != 0 && Time.time - lastAttackTime > comboMaxTime)
             {
                 comboStepPunch = 0;
@@ -147,7 +163,10 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Attack");
 
             PerformAttack(punchDamage);
-            CameraShake.Instance.InduceStress(attackCameraShakeStress);
+            if (CameraShake.Instance != null)
+            {
+                CameraShake.Instance.InduceStress(attackCameraShakeStress);
+            }
             lastAttackTime = Time.time;
         }
     }
@@ -163,10 +182,10 @@ public class Player : MonoBehaviour
 
         foreach (Collider hit in hits)
         {
-            var enemy = hit.GetComponent<Enemy>();
-            if (enemy != null)
+            var damageable = hit.GetComponent<IDamageable>();
+            if (damageable != null)
             {
-                enemy.TakeDamage(damage);
+                damageable.TakeDamage(damage);
                 SpawnHitEffect(hit);
             }
         }
@@ -179,5 +198,10 @@ public class Player : MonoBehaviour
             Vector3 spawnPosition = hitEffectSpawnPoint != null ? hitEffectSpawnPoint.position : hitCollider.ClosestPoint(transform.position);
             Instantiate(hitEffectPrefab, spawnPosition, Quaternion.identity);
         }
+    }
+
+    public void OnAttackAnimationEnd()
+    {
+        isAttacking = false;
     }
 }
