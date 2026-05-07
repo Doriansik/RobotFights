@@ -11,10 +11,15 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnCredits()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
 
-    public void OnQuitCredits()
+    public void OnOptions()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void OnBackButton()
     {
         SceneManager.LoadScene(0);
     }

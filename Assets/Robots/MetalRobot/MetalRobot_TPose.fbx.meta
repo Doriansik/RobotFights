@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 23bcfa16e6e1d87488ac695641532c45
+=======
+guid: 5b5c7839f7bbf534991922d6326e9f7e
+>>>>>>> origin/daria
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -22,7 +26,11 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
+<<<<<<< HEAD
+    animationCompression: 3
+=======
     animationCompression: 1
+>>>>>>> origin/daria
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -94,7 +102,11 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
+<<<<<<< HEAD
+    hasExtraRoot: 1
+=======
     hasExtraRoot: 0
+>>>>>>> origin/daria
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1

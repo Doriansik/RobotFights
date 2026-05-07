@@ -1,68 +1,54 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class EnemyHPUIManager : MonoBehaviour
 {
+    public static EnemyHPUIManager Instance { get; private set; }
+
     [SerializeField] private Slider hpSlider;
 
-    private readonly List<Enemy> aliveEnemies = new();
     private Enemy currentEnemy;
-
-    public static EnemyHPUIManager Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
+        if (hpSlider) hpSlider.gameObject.SetActive(false);
+    }
 
-        if (!hpSlider)
+    private void OnEnable()
+    {
+        AttackCoordinator.OnTargetChanged += SetCurrentEnemy;
+    }
+
+    private void OnDisable()
+    {
+        AttackCoordinator.OnTargetChanged -= SetCurrentEnemy;
+    }
+
+    private void SetCurrentEnemy(GameObject targetObj)
+    {
+        if (targetObj == null)
         {
-            Debug.LogError("EnemyHPUIManager: Nie podpiêty hpSlider w Inspectorze!");
+            currentEnemy = null;
+            if (hpSlider) hpSlider.gameObject.SetActive(false);
             return;
         }
 
-        hpSlider.gameObject.SetActive(false);
-    }
-
-    public void RegisterEnemy(Enemy enemy)
-    {
-        aliveEnemies.Add(enemy);
-        SetCurrentEnemy(enemy);
-    }
-
-    public void UnregisterEnemy(Enemy enemy)
-    {
-        aliveEnemies.Remove(enemy);
-
-        if (currentEnemy == enemy)
+        Enemy enemy = targetObj.GetComponent<Enemy>();
+        if (enemy != null && hpSlider != null)
         {
-            if (aliveEnemies.Count > 0)
-                SetCurrentEnemy(aliveEnemies[^1]);
-            else
-                Clear();
+            currentEnemy = enemy;
+            hpSlider.maxValue = enemy.MaxHp;
+            hpSlider.value = enemy.CurrentHp;
+            hpSlider.gameObject.SetActive(true);
         }
     }
 
-    private void SetCurrentEnemy(Enemy enemy)
+    public void UpdateHp(Enemy sender, int hp)
     {
-        if (!hpSlider) return;
-
-        currentEnemy = enemy;
-        hpSlider.maxValue = enemy.MaxHp;
-        hpSlider.value = enemy.CurrentHp;
-        hpSlider.gameObject.SetActive(true);
-    }
-
-    public void UpdateHp(int hp)
-    {
-        if (!hpSlider) return;
-        if (currentEnemy != null)
+        if (hpSlider && currentEnemy == sender)
+        {
             hpSlider.value = hp;
-    }
-
-    private void Clear()
-    {
-        currentEnemy = null;
-        if (hpSlider) hpSlider.gameObject.SetActive(false);
+        }
     }
 }

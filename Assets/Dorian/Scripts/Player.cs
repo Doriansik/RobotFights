@@ -120,6 +120,9 @@ public class Player : MonoBehaviour
 
     private void HandlePunchCombo()
     {
+        if (inputDirection != Vector2.zero)
+            return;
+
         if (actionPunch.action.triggered)
         {
             if (comboStepPunch != 0 && Time.time - lastAttackTime > comboMaxTime)
@@ -135,7 +138,7 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Attack");
 
             PerformAttack(punchDamage);
-            CameraShake.Instance.InduceStress(.03f);
+            CameraShake.Instance.InduceStress(.1f);
             lastAttackTime = Time.time;
         }
     }
@@ -154,7 +157,7 @@ public class Player : MonoBehaviour
         foreach (Collider hit in hits)
         {
             var enemy = hit.GetComponent<Enemy>();
-            if (enemy != null) enemy.TakeDamage(damage, playerHealth);
+            if (enemy != null) enemy.TakeDamage(damage);
         }
     }
 }
