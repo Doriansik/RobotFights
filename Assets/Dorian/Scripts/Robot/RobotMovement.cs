@@ -1,12 +1,14 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class RobotMovement : MonoBehaviour
+public class RobotMovement : MonoBehaviour, IAttacker
 {
     [SerializeField] private Transform target;
     [SerializeField] private float moveSpeed = 2.5f;
     [SerializeField] private float attackDistance = 1.6f;
     [SerializeField] private float waitDistance = 4.0f;
+    [SerializeField] private float tokenRequestDistance = 5.0f;
     [SerializeField] private float rotateSpeed = 12f;
     [SerializeField] private Animator animator;
     [SerializeField] private RobotCombat combatModule;
@@ -14,6 +16,8 @@ public class RobotMovement : MonoBehaviour
     private Rigidbody rb;
     private bool isAttackingRole;
     private const float DistanceEpsilon = 0.001f;
+
+    public GameObject GameObject => gameObject;
 
     private void Awake()
     {
@@ -35,16 +39,16 @@ public class RobotMovement : MonoBehaviour
     {
         if (!target) return;
 
-        if (!isAttackingRole && AttackCoordinator.Instance != null)
+        Vector3 toTarget = target.position - transform.position;
+        toTarget.y = 0f;
+        float dist = toTarget.magnitude;
+
+        if (!isAttackingRole && AttackCoordinator.Instance != null && dist <= tokenRequestDistance)
         {
             isAttackingRole = AttackCoordinator.Instance.TryGetAttackToken(this);
         }
 
         float currentTargetDistance = isAttackingRole ? attackDistance : waitDistance;
-
-        Vector3 toTarget = target.position - transform.position;
-        toTarget.y = 0f;
-        float dist = toTarget.magnitude;
 
         if (dist > DistanceEpsilon)
         {

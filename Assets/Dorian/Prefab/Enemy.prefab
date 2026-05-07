@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2727119107697985539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7690585420173346259}
+  m_Layer: 7
+  m_Name: HitParticleSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7690585420173346259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727119107697985539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5494827929839799491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7877879605837711466
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +66,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 923972784815423449}
+  - {fileID: 7690585420173346259}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!136 &4010427356725580099
@@ -116,6 +148,7 @@ MonoBehaviour:
   moveSpeed: 2.5
   attackDistance: 1.6
   waitDistance: 4
+  tokenRequestDistance: 5
   rotateSpeed: 12
   animator: {fileID: 6499451339141080483}
   combatModule: {fileID: 2542998183384044715}
@@ -151,6 +184,8 @@ MonoBehaviour:
   animator: {fileID: 6499451339141080483}
   enemyStats: {fileID: 4979328073486076661}
   robotName: BigMeanGuy
+  hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
+  hitEffectSpawnPoint: {fileID: 7690585420173346259}
 --- !u!1001 &817444183071545394
 PrefabInstance:
   m_ObjectHideFlags: 0

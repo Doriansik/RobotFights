@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float rotateSpeed;
+    [SerializeField] private float rotationRightY = 90f;
+    [SerializeField] private float rotationLeftY = 270f;
 
     [Header("GroundCheck")]
     [SerializeField] private float distanceToGround;
@@ -29,6 +31,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private LayerMask attackLayer;
     [SerializeField] private float comboMaxTime = 2f;
+    [SerializeField] private int maxPunchComboSteps = 3;
+    [SerializeField] private float attackOriginYOffset = 1f;
+    [SerializeField] private float attackCameraShakeStress = 0.1f;
+
+    [Header("Effects Settings")]
+    [SerializeField] private GameObject hitEffectPrefab;
+    [SerializeField] private Transform hitEffectSpawnPoint;
 
     private Vector2 inputDirection;
     private CapsuleCollider col;
@@ -76,7 +85,7 @@ public class Player : MonoBehaviour
     {
         if (inputDirection.x != 0)
         {
-            float targetY = inputDirection.x > 0 ? 90 : 270;
+            float targetY = inputDirection.x > 0 ? rotationRightY : rotationLeftY;
             Quaternion targetRot = Quaternion.Euler(0, targetY, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * rotateSpeed);
         }
@@ -132,22 +141,20 @@ public class Player : MonoBehaviour
             }
 
             comboStepPunch++;
-            if (comboStepPunch > 3) comboStepPunch = 1;
+            if (comboStepPunch > maxPunchComboSteps) comboStepPunch = 1;
 
             animator.SetInteger("ComboStepPunch", comboStepPunch);
             animator.SetTrigger("Attack");
 
             PerformAttack(punchDamage);
-            CameraShake.Instance.InduceStress(.1f);
+            CameraShake.Instance.InduceStress(attackCameraShakeStress);
             lastAttackTime = Time.time;
         }
     }
 
-    
-
     private void PerformAttack(int damage)
     {
-        Vector3 attackOrigin = transform.position + Vector3.up * 1f;
+        Vector3 attackOrigin = transform.position + Vector3.up * attackOriginYOffset;
         Collider[] hits = Physics.OverlapSphere(
             attackOrigin + transform.forward * attackRange / 2f,
             attackRange / 2f,
@@ -157,7 +164,20 @@ public class Player : MonoBehaviour
         foreach (Collider hit in hits)
         {
             var enemy = hit.GetComponent<Enemy>();
-            if (enemy != null) enemy.TakeDamage(damage);
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                SpawnHitEffect(hit);
+            }
+        }
+    }
+
+    private void SpawnHitEffect(Collider hitCollider)
+    {
+        if (hitEffectPrefab != null)
+        {
+            Vector3 spawnPosition = hitEffectSpawnPoint != null ? hitEffectSpawnPoint.position : hitCollider.ClosestPoint(transform.position);
+            Instantiate(hitEffectPrefab, spawnPosition, Quaternion.identity);
         }
     }
 }

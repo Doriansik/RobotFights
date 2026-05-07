@@ -675,6 +675,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4979328073486076661, guid: db67350b21915b24a8812f4497b6be67, type: 3}
+      propertyPath: bloodEffectPrefab
+      value: 
+      objectReference: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
+    - target: {fileID: 4979328073486076661, guid: db67350b21915b24a8812f4497b6be67, type: 3}
+      propertyPath: bloodEffectSpawnPoint
+      value: 
+      objectReference: {fileID: 1736283816}
     - target: {fileID: 5494827929839799491, guid: db67350b21915b24a8812f4497b6be67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.41
@@ -715,6 +723,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7690585420173346259, guid: db67350b21915b24a8812f4497b6be67, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.99
+      objectReference: {fileID: 0}
     - target: {fileID: 7877879605837711466, guid: db67350b21915b24a8812f4497b6be67, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -725,7 +737,10 @@ PrefabInstance:
       objectReference: {fileID: 1708204925}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5494827929839799491, guid: db67350b21915b24a8812f4497b6be67, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1736283816}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db67350b21915b24a8812f4497b6be67, type: 3}
 --- !u!1 &179108630
@@ -1568,6 +1583,11 @@ Transform:
   - {fileID: 1260311913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &751714915 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5494827929839799491, guid: db67350b21915b24a8812f4497b6be67, type: 3}
+  m_PrefabInstance: {fileID: 140517388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &755952345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,6 +2268,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 708880297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1273925129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1273925130}
+  m_Layer: 7
+  m_Name: BloodParticleSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1273925130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273925129}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1708204925}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1361320761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,6 +2740,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1568269091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1568269092}
+  m_Layer: 7
+  m_Name: BloodParticleSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1568269092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568269091}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1679095690}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1679095690 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5494827929839799491, guid: a77bb3a82f7f56d4fb84014e44c030f4, type: 3}
+  m_PrefabInstance: {fileID: 1875192918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1687261825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,6 +2914,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8642305558138096793, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
   m_PrefabInstance: {fileID: 6749069702155002933}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1736283815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1736283816}
+  m_Layer: 7
+  m_Name: BloodParticleSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1736283816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736283815}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 751714915}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1739786633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,9 +3133,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2542998183384044715, guid: a77bb3a82f7f56d4fb84014e44c030f4, type: 3}
-      propertyPath: robotName
-      value: MetalRobot
+    - target: {fileID: 208317505304397515, guid: a77bb3a82f7f56d4fb84014e44c030f4, type: 3}
+      propertyPath: bloodEffectPrefab
+      value: 
+      objectReference: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
+    - target: {fileID: 208317505304397515, guid: a77bb3a82f7f56d4fb84014e44c030f4, type: 3}
+      propertyPath: bloodEffectSpawnPoint
+      value: 
+      objectReference: {fileID: 1568269092}
+    - target: {fileID: 220156160114874229, guid: a77bb3a82f7f56d4fb84014e44c030f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 220156160114874229, guid: a77bb3a82f7f56d4fb84014e44c030f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.43
       objectReference: {fileID: 0}
     - target: {fileID: 5494827929839799491, guid: a77bb3a82f7f56d4fb84014e44c030f4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3069,7 +3199,10 @@ PrefabInstance:
       objectReference: {fileID: 1708204925}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5494827929839799491, guid: a77bb3a82f7f56d4fb84014e44c030f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1568269092}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a77bb3a82f7f56d4fb84014e44c030f4, type: 3}
 --- !u!1 &2019331994
@@ -3336,6 +3469,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2502426371299929699, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502426371299929699, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.46
+      objectReference: {fileID: 0}
     - target: {fileID: 3855165041058684021, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3388,9 +3529,20 @@ PrefabInstance:
       propertyPath: losePanel
       value: 
       objectReference: {fileID: 413248636}
+    - target: {fileID: 8740041365634898854, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      propertyPath: bloodEffectPrefab
+      value: 
+      objectReference: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
+    - target: {fileID: 8740041365634898854, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      propertyPath: bloodEffectSpawnPoint
+      value: 
+      objectReference: {fileID: 1273925130}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8642305558138096793, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1273925130}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
 --- !u!1660057539 &9223372036854775807
