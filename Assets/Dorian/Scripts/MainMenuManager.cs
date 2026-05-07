@@ -7,6 +7,7 @@ public class MainMenuManager : MonoBehaviour
     public void OnStartGame()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1.0f;
     }
 
     public void OnCredits()
