@@ -12,7 +12,11 @@ public class RobotCombat : MonoBehaviour
     [SerializeField] private float attackForwardOffsetMultiplier = 0.5f;
     [SerializeField] private Animator animator;
     [SerializeField] private Enemy enemyStats;
-    [SerializeField] private string robotName = "Robot_Alpha";
+    [SerializeField] private string robotName;
+
+    [Header("Effects")]
+    [SerializeField] private GameObject hitEffectPrefab;
+    [SerializeField] private Transform hitEffectSpawnPoint;
 
     private int currentComboIndex;
     private int totalComboCounter;
@@ -89,8 +93,18 @@ public class RobotCombat : MonoBehaviour
             if (dmg != null)
             {
                 dmg.TakeDamage(attack.Damage);
+                SpawnHitEffect(hits[i]);
                 break;
             }
+        }
+    }
+
+    private void SpawnHitEffect(Collider hitCollider)
+    {
+        if (hitEffectPrefab != null)
+        {
+            Vector3 spawnPosition = hitEffectSpawnPoint != null ? hitEffectSpawnPoint.position : hitCollider.ClosestPoint(transform.position);
+            Instantiate(hitEffectPrefab, spawnPosition, Quaternion.identity);
         }
     }
 }

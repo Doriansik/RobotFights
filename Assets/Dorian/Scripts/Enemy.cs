@@ -10,6 +10,10 @@ public class Enemy : MonoBehaviour, IDamageable
 
     [SerializeField] private int maxHp = 100;
 
+    [Header("Effects")]
+    [SerializeField] private GameObject bloodEffectPrefab;
+    [SerializeField] private Transform bloodEffectSpawnPoint;
+
     private int currentHp;
 
     private void Awake()
@@ -19,11 +23,12 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        if (currentHp <= 0) return;
+        if (damage <= 0 || currentHp <= 0) return;
 
         currentHp -= damage;
         currentHp = Mathf.Max(currentHp, 0);
 
+        SpawnBloodEffect();
         OnDamageTaken?.Invoke();
 
         if (EnemyHPUIManager.Instance != null)
@@ -40,5 +45,14 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    private void SpawnBloodEffect()
+    {
+        if (bloodEffectPrefab != null)
+        {
+            Vector3 spawnPosition = bloodEffectSpawnPoint != null ? bloodEffectSpawnPoint.position : transform.position;
+            Instantiate(bloodEffectPrefab, spawnPosition, Quaternion.identity);
+        }
     }
 }

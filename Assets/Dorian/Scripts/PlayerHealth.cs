@@ -1,64 +1,68 @@
 using UnityEngine;
-using UnityEngine.UI;
+using System;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    public event Action<int> OnHealthChanged;
+    public event Action OnDeath;
+
     [SerializeField] private int maxHp = 100;
-    [SerializeField] private Animator animator;
-    [SerializeField] private Player player;
-    [SerializeField] private Slider slider;
-    [SerializeField] private GameObject losePanel;
+    [SerializeField] private float deathDestroyDelay = 3f;
+
+    [Header("Effects")]
+    [SerializeField] private GameObject bloodEffectPrefab;
+    [SerializeField] private Transform bloodEffectSpawnPoint;
 
     public int CurrentHp { get; private set; }
     public bool IsDead { get; private set; }
 
     private void Awake()
     {
-        if (slider == null && losePanel == null) return;
-
         CurrentHp = maxHp;
-        slider.maxValue = maxHp;
-        slider.value = CurrentHp;
-        if (!animator) animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(int damage)
     {
-        if (slider == null && losePanel == null) return;
-
-        if (IsDead) return;
+        if (damage <= 0 || IsDead) return;
 
         CurrentHp -= damage;
-        slider.value = CurrentHp;
+        OnHealthChanged?.Invoke(CurrentHp);
+        SpawnBloodEffect();
 
         if (CurrentHp <= 0)
         {
-            IsDead = true;
-            animator.SetTrigger("Death");
-            player.enabled = false;
-            Destroy(gameObject, 3f);
-            losePanel.SetActive(true);
+            Die();
         }
     }
 
     public void Heal(int amount)
     {
-        if (slider == null && losePanel == null) return;
+        if (amount <= 0 || IsDead) return;
 
-        if (IsDead) return;
-
-        CurrentHp += amount;
-        if (CurrentHp > maxHp) CurrentHp = maxHp;
-
-        slider.value = CurrentHp;
+        CurrentHp = Mathf.Min(CurrentHp + amount, maxHp);
+        OnHealthChanged?.Invoke(CurrentHp);
     }
 
     public void ResetHp()
     {
-        if (slider == null && losePanel == null) return;
-
         IsDead = false;
         CurrentHp = maxHp;
-        slider.value = CurrentHp;
+        OnHealthChanged?.Invoke(CurrentHp);
+    }
+
+    private void Die()
+    {
+        IsDead = true;
+        OnDeath?.Invoke();
+        Destroy(gameObject, deathDestroyDelay);
+    }
+
+    private void SpawnBloodEffect()
+    {
+        if (bloodEffectPrefab != null)
+        {
+            Vector3 spawnPosition = bloodEffectSpawnPoint != null ? bloodEffectSpawnPoint.position : transform.position;
+            Instantiate(bloodEffectPrefab, spawnPosition, Quaternion.identity);
+        }
     }
 }
