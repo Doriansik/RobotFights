@@ -5,7 +5,7 @@ public class RobotCombat : MonoBehaviour
 {
     public static event Action<GameObject, string, int> OnComboExecuted;
 
-    [SerializeField] private AttackData[] comboSequence;
+    [SerializeField] private AttackDataStats[] comboSequence;
     [SerializeField] private float comboResetTime = 2.5f;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private float attackVerticalOffset = 1.0f;
@@ -54,7 +54,7 @@ public class RobotCombat : MonoBehaviour
             ResetComboValues();
         }
 
-        AttackData currentAttack = comboSequence[currentComboIndex];
+        AttackDataStats currentAttack = comboSequence[currentComboIndex];
 
         if (Time.time < lastAttackTime + currentAttack.CooldownBeforeNextAttack) return;
 
@@ -78,7 +78,7 @@ public class RobotCombat : MonoBehaviour
         OnComboExecuted?.Invoke(gameObject, robotName, totalComboCounter);
     }
 
-    private void ExecuteAttack(AttackData attack)
+    private void ExecuteAttack(AttackDataStats attack)
     {
         if (animator) animator.SetTrigger(attack.AnimationTrigger);
 
