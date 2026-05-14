@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public struct AttackData
+public struct AttackDataStats
 {
     public int Damage;
     public float AttackRange;
