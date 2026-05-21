@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1735358809297576417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7546872451733787489}
+  - component: {fileID: 3692899493655291625}
+  m_Layer: 7
+  m_Name: PlayerEnergyUIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7546872451733787489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735358809297576417}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8642305558138096793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3692899493655291625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735358809297576417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8d1e03b43c1aa448901773ac24fe3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerEnergyUI
+  playerEnergy: {fileID: 41020005521628944}
+  energySlider: {fileID: 0}
+  minSliderValue: 0
+  maxSliderValue: 1
 --- !u!1 &3855165041058684021
 GameObject:
   m_ObjectHideFlags: 0
@@ -16,6 +64,7 @@ GameObject:
   - component: {fileID: 2149653807344824096}
   - component: {fileID: 3304470853911386596}
   - component: {fileID: 8048179894739198336}
+  - component: {fileID: 41020005521628944}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -41,6 +90,7 @@ Transform:
   - {fileID: 5414724461673008432}
   - {fileID: 5156680080522357305}
   - {fileID: 7207118228211933121}
+  - {fileID: 7546872451733787489}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!136 &8530470490158745147
@@ -105,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d700e4f3b9ee9e843ba39684c7293347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHp: 250
+  maxHp: 100
   deathDestroyDelay: 3
   bloodEffectPrefab: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
   bloodEffectSpawnPoint: {fileID: 5414724461673008432}
@@ -131,6 +181,9 @@ MonoBehaviour:
   crouchHeight: 1
   crouchLerpSpeed: 10
   colliderCenterMultiplier: 2
+  normalSpeedMultiplier: 1
+  exhaustedSpeedMultiplier: 0.5
+  zeroFloatValue: 0
   actionCrouch: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   actionMove: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   actionJump: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -186,6 +239,22 @@ MonoBehaviour:
   AttackCooldown: 0.2
   LightAttackAction: {fileID: 8438725535695441880, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   HeavyAttackAction: {fileID: 3263014902993649633, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+--- !u!114 &41020005521628944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855165041058684021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a8b67f8f8bede4ab0cb77910d95f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerEnergy
+  maxEnergy: 100
+  energyRegenRate: 15
+  minEnergyToRecover: 20
+  emptyEnergyValue: 0
 --- !u!1 &4615409986769542967
 GameObject:
   m_ObjectHideFlags: 0

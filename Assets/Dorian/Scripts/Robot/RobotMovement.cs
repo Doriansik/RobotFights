@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody), typeof(EnemyEnergy))]
 public class RobotMovement : MonoBehaviour, IAttacker
 {
     [SerializeField] private Transform target;
@@ -9,8 +9,12 @@ public class RobotMovement : MonoBehaviour, IAttacker
     [SerializeField] private float waitDistance = 4.0f;
     [SerializeField] private float tokenRequestDistance = 5.0f;
     [SerializeField] private float rotateSpeed = 12f;
+    [SerializeField] private float normalSpeedMultiplier = 1f;
+    [SerializeField] private float exhaustedSpeedMultiplier = 0.5f;
+    [SerializeField] private float zeroFloatValue = 0f;
     [SerializeField] private Animator animator;
     [SerializeField] private RobotCombat combatModule;
+    [SerializeField] private EnemyEnergy enemyEnergy;
 
     private Rigidbody rb;
     private bool isAttackingRole;
@@ -24,6 +28,7 @@ public class RobotMovement : MonoBehaviour, IAttacker
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         if (!animator) animator = GetComponent<Animator>();
         if (!combatModule) combatModule = GetComponent<RobotCombat>();
+        if (!enemyEnergy) enemyEnergy = GetComponent<EnemyEnergy>();
     }
 
     private void OnDestroy()
@@ -39,7 +44,7 @@ public class RobotMovement : MonoBehaviour, IAttacker
         if (!target) return;
 
         Vector3 toTarget = target.position - transform.position;
-        toTarget.y = 0f;
+        toTarget.y = zeroFloatValue;
         float dist = toTarget.magnitude;
 
         if (!isAttackingRole && AttackCoordinator.Instance != null && dist <= tokenRequestDistance)
@@ -60,7 +65,8 @@ public class RobotMovement : MonoBehaviour, IAttacker
 
         if (canMove)
         {
-            Vector3 move = toTarget.normalized * (moveSpeed * Time.fixedDeltaTime);
+            float currentMultiplier = enemyEnergy.IsExhausted ? exhaustedSpeedMultiplier : normalSpeedMultiplier;
+            Vector3 move = toTarget.normalized * (moveSpeed * currentMultiplier * Time.fixedDeltaTime);
             rb.MovePosition(rb.position + move);
         }
         else if (isAttackingRole)

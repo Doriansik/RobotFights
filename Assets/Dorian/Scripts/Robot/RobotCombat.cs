@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(EnemyEnergy))]
 public class RobotCombat : MonoBehaviour
 {
     public static event Action<GameObject, string, int> OnComboExecuted;
@@ -12,7 +13,9 @@ public class RobotCombat : MonoBehaviour
     [SerializeField] private float attackForwardOffsetMultiplier = 0.5f;
     [SerializeField] private Animator animator;
     [SerializeField] private Enemy enemyStats;
+    [SerializeField] private EnemyEnergy enemyEnergy;
     [SerializeField] private string robotName;
+    [SerializeField] private float energyAmount;
 
     [Header("Effects")]
     [SerializeField] private GameObject hitEffectPrefab;
@@ -26,6 +29,7 @@ public class RobotCombat : MonoBehaviour
     {
         if (!animator) animator = GetComponent<Animator>();
         if (!enemyStats) enemyStats = GetComponent<Enemy>();
+        if (!enemyEnergy) enemyEnergy = GetComponent<EnemyEnergy>();
 
         ResetComboValues();
         lastAttackTime = -comboResetTime;
@@ -57,6 +61,10 @@ public class RobotCombat : MonoBehaviour
         AttackDataStats currentAttack = comboSequence[currentComboIndex];
 
         if (Time.time < lastAttackTime + currentAttack.CooldownBeforeNextAttack) return;
+
+        if (!enemyEnergy.HasEnoughEnergy(energyAmount)) return;
+
+        enemyEnergy.ConsumeEnergy(energyAmount);
 
         totalComboCounter++;
         ExecuteAttack(currentAttack);

@@ -17,6 +17,9 @@ public class AttackState : ICombatState
     {
         stateStartTime = Time.time;
         comboTriggered = false;
+
+        controller.EnergyManager.ConsumeEnergy(attackData.Energy);
+
         controller.CharacterAnimator.SetTrigger(attackData.AnimationTriggerName);
         controller.HitboxExecutor.PrepareHitbox(attackData);
     }
@@ -38,7 +41,10 @@ public class AttackState : ICombatState
             {
                 if (controller.CombatInputBuffer.ConsumeInput(attackData.NextComboNode.RequiredInput))
                 {
-                    comboTriggered = true;
+                    if (controller.EnergyManager.HasEnoughEnergy(attackData.NextComboNode.Energy))
+                    {
+                        comboTriggered = true;
+                    }
                 }
             }
         }

@@ -20,11 +20,17 @@ public class IdleState : ICombatState
 
         if (controller.CombatInputBuffer.ConsumeInput(AttackType.Light))
         {
-            controller.ChangeState(new AttackState(controller, controller.NeutralLightStartNode));
+            if (controller.EnergyManager.HasEnoughEnergy(controller.NeutralLightStartNode.Energy))
+            {
+                controller.ChangeState(new AttackState(controller, controller.NeutralLightStartNode));
+            }
         }
         else if (controller.CombatInputBuffer.ConsumeInput(AttackType.Heavy))
         {
-            controller.ChangeState(new AttackState(controller, controller.NeutralHeavyStartNode));
+            if (controller.EnergyManager.HasEnoughEnergy(controller.NeutralHeavyStartNode.Energy))
+            {
+                controller.ChangeState(new AttackState(controller, controller.NeutralHeavyStartNode));
+            }
         }
     }
 

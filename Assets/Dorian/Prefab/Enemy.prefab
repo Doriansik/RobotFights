@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2727119107697985539}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.42, z: 0}
+  m_LocalPosition: {x: 0, y: 1.42, z: 0.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 4979328073486076661}
   - component: {fileID: 8125652903358215629}
   - component: {fileID: 2542998183384044715}
+  - component: {fileID: 3283242066541618646}
+  - component: {fileID: 6749312679282511722}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -67,6 +69,7 @@ Transform:
   m_Children:
   - {fileID: 923972784815423449}
   - {fileID: 7690585420173346259}
+  - {fileID: 4657116270993634867}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!136 &4010427356725580099
@@ -132,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   maxHp: 100
+  bloodEffectPrefab: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
+  bloodEffectSpawnPoint: {fileID: 4657116270993634867}
 --- !u!114 &8125652903358215629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,8 +155,12 @@ MonoBehaviour:
   waitDistance: 4
   tokenRequestDistance: 5
   rotateSpeed: 12
+  normalSpeedMultiplier: 1
+  exhaustedSpeedMultiplier: 0.5
+  zeroFloatValue: 0
   animator: {fileID: 6499451339141080483}
   combatModule: {fileID: 2542998183384044715}
+  enemyEnergy: {fileID: 0}
 --- !u!114 &2542998183384044715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,11 +179,6 @@ MonoBehaviour:
     AttackRadius: 3
     AnimationTrigger: Jab
     CooldownBeforeNextAttack: 1
-  - Damage: 10
-    AttackRange: 3
-    AttackRadius: 3
-    AnimationTrigger: Swing
-    CooldownBeforeNextAttack: 1
   comboResetTime: 2.5
   targetLayer:
     serializedVersion: 2
@@ -183,9 +187,72 @@ MonoBehaviour:
   attackForwardOffsetMultiplier: 0.5
   animator: {fileID: 6499451339141080483}
   enemyStats: {fileID: 4979328073486076661}
+  enemyEnergy: {fileID: 0}
   robotName: BigMeanGuy
+  energyAmount: 15
   hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
   hitEffectSpawnPoint: {fileID: 7690585420173346259}
+--- !u!114 &3283242066541618646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7877879605837711466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 001a026c45b6be04cbdfd51258c088a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFeedback
+  knockbackDistance: 0.5
+  tiltAngle: -15
+  effectDuration: 0.2
+  modelTransform: {fileID: 923972784815423449}
+--- !u!114 &6749312679282511722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7877879605837711466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4ae98dafadd3042934d95846617837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyEnergy
+  maxEnergy: 30
+  emptyEnergyValue: 0
+--- !u!1 &8667244069069872581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4657116270993634867}
+  m_Layer: 7
+  m_Name: BloodParticleSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4657116270993634867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667244069069872581}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5494827929839799491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &817444183071545394
 PrefabInstance:
   m_ObjectHideFlags: 0
