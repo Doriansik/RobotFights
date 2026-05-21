@@ -15,7 +15,6 @@ public class RobotMovement : MonoBehaviour, IAttacker
     private Rigidbody rb;
     private bool isAttackingRole;
     private const float DistanceEpsilon = 0.001f;
-    private const string MovementAnimatorParameter = "Movement";
 
     public GameObject GameObject => gameObject;
 
@@ -23,9 +22,8 @@ public class RobotMovement : MonoBehaviour, IAttacker
     {
         rb = GetComponent<Rigidbody>();
         rb.interpolation = RigidbodyInterpolation.Interpolate;
-
-        if (animator == null) animator = GetComponent<Animator>();
-        if (combatModule == null) combatModule = GetComponent<RobotCombat>();
+        if (!animator) animator = GetComponent<Animator>();
+        if (!combatModule) combatModule = GetComponent<RobotCombat>();
     }
 
     private void OnDestroy()
@@ -38,7 +36,7 @@ public class RobotMovement : MonoBehaviour, IAttacker
 
     private void FixedUpdate()
     {
-        if (target == null) return;
+        if (!target) return;
 
         Vector3 toTarget = target.position - transform.position;
         toTarget.y = 0f;
@@ -48,38 +46,31 @@ public class RobotMovement : MonoBehaviour, IAttacker
         {
             isAttackingRole = AttackCoordinator.Instance.TryGetAttackToken(this);
         }
-    }
 
-    private void HandleRotation(Vector3 toTarget, float distanceToTarget)
-    {
-        if (distanceToTarget > DistanceEpsilon)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(toTarget.normalized, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotateSpeed);
-        }
-    }
-
-    private void HandleMovementAndCombat(Vector3 moveDirection, float distanceToTarget)
-    {
         float currentTargetDistance = isAttackingRole ? attackDistance : waitDistance;
-        bool canMove = distanceToTarget > currentTargetDistance;
 
         if (dist > DistanceEpsilon)
         {
-            animator.SetBool(MovementAnimatorParameter, canMove);
+            Quaternion rot = Quaternion.LookRotation(toTarget.normalized, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.fixedDeltaTime * rotateSpeed);
         }
+
+        bool canMove = dist > currentTargetDistance;
+        if (animator) animator.SetBool("Movement", canMove);
 
         if (canMove)
         {
-            Vector3 moveVector = moveDirection * (moveSpeed * Time.fixedDeltaTime);
-            rb.MovePosition(rb.position + moveVector);
+            Vector3 move = toTarget.normalized * (moveSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + move);
         }
         else if (isAttackingRole)
         {
-            if (combatModule != null)
-            {
-                combatModule.TryAttack();
-            }
+            combatModule.TryAttack();
         }
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 }
