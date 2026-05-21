@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Robots/Main Robot/Nieudana animacjia do poprawy/aniamjcie/Robot Protagonista Hud.fbx.meta
 guid: 67641b643b71f1c4691e3c02c0b8f86d
+========
+guid: 3c00472f10811a84f9b974c9fc37f374
+>>>>>>>> origin/Dorians2:Assets/Robots/Main Robot/Nowe_lepsze animacjie/Animacjie/Blok.fbx.meta
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
