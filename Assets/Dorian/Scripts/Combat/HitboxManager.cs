@@ -1,18 +1,18 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 public class HitboxManager : MonoBehaviour
 {
+    public event Action<Vector3> OnHitDetected;
+
     public HitboxConfig Configuration;
     public Collider DamageCollider;
-
-    [SerializeField] private GameObject hitEffectPrefab;
-    [SerializeField] private Transform hitEffectSpawnPoint;
-    [SerializeField] private float cameraShakeStress;
-    [SerializeField] private float hitStopDuration;
+    public LayerMask TargetLayer;
 
     private AttackData currentAttackData;
-    private HashSet<Collider> alreadyHitColliders = new HashSet<Collider>();
+    private readonly HashSet<Collider> alreadyHitColliders = new HashSet<Collider>();
+    private const float extentsMultiplier = 0.5f;
 
     public void PrepareHitbox(AttackData attackData)
     {
@@ -45,9 +45,9 @@ public class HitboxManager : MonoBehaviour
     {
         if (currentAttackData == null || !DamageCollider.enabled) return;
 
-        if (DamageCollider.bounds.Intersects(other.bounds))
+        if (((1 << other.gameObject.layer) & TargetLayer) != 0 && DamageCollider.bounds.Intersects(other.bounds))
         {
-            ProcessHit(other);
+            ProcessHit(other, true);
         }
     }
 
@@ -55,16 +55,16 @@ public class HitboxManager : MonoBehaviour
     {
         if (currentAttackData == null) return;
 
-        Collider[] hits = new Collider[0];
+        Collider[] hits;
 
         if (DamageCollider is BoxCollider box)
         {
             Vector3 center = box.transform.TransformPoint(box.center);
             Vector3 lossy = box.transform.lossyScale;
             Vector3 scale = new Vector3(Mathf.Abs(lossy.x), Mathf.Abs(lossy.y), Mathf.Abs(lossy.z));
-            Vector3 halfExtents = Vector3.Scale(box.size, scale) * 0.5f;
+            Vector3 halfExtents = Vector3.Scale(box.size, scale) * extentsMultiplier;
 
-            hits = Physics.OverlapBox(center, halfExtents, box.transform.rotation);
+            hits = Physics.OverlapBox(center, halfExtents, box.transform.rotation, TargetLayer);
         }
         else if (DamageCollider is SphereCollider sphere)
         {
@@ -72,24 +72,25 @@ public class HitboxManager : MonoBehaviour
             float maxScale = Mathf.Max(Mathf.Abs(sphere.transform.lossyScale.x), Mathf.Abs(sphere.transform.lossyScale.y), Mathf.Abs(sphere.transform.lossyScale.z));
             float radius = sphere.radius * maxScale;
 
-            hits = Physics.OverlapSphere(center, radius);
+            hits = Physics.OverlapSphere(center, radius, TargetLayer);
         }
         else
         {
             hits = Physics.OverlapBox(
                 DamageCollider.bounds.center,
                 DamageCollider.bounds.extents,
-                Quaternion.identity
+                Quaternion.identity,
+                TargetLayer
             );
         }
 
         foreach (Collider hitCollider in hits)
         {
-            ProcessHit(hitCollider);
+            ProcessHit(hitCollider, false);
         }
     }
 
-    private void ProcessHit(Collider hitCollider)
+    private void ProcessHit(Collider hitCollider, bool isPhysicalCollision)
     {
         if (hitCollider.transform.root == transform.root) return;
 
@@ -104,39 +105,11 @@ public class HitboxManager : MonoBehaviour
         if (target != null)
         {
             alreadyHitColliders.Add(hitCollider);
-            target.TakeDamage(Mathf.RoundToInt(currentAttackData.Damage));
 
-            SpawnHitEffect(hitCollider);
-            TriggerCameraShake();
-            TriggerHitStop();
-        }
-    }
+            Vector3 hitPoint = isPhysicalCollision ? hitCollider.ClosestPoint(transform.position) : hitCollider.bounds.center;
 
-    private void SpawnHitEffect(Collider hitCollider)
-    {
-        if (hitEffectPrefab == null) return;
-
-        Vector3 spawnPosition = hitEffectSpawnPoint != null
-            ? hitEffectSpawnPoint.position
-            : hitCollider.ClosestPoint(transform.position);
-
-        GameObject effect = Instantiate(hitEffectPrefab, spawnPosition, Quaternion.identity);
-        Destroy(effect, 2f);
-    }
-
-    private void TriggerCameraShake()
-    {
-        if (CameraShake.Instance != null)
-        {
-            CameraShake.Instance.InduceStress(cameraShakeStress);
-        }
-    }
-
-    private void TriggerHitStop()
-    {
-        if (HitStopManager.Instance != null)
-        {
-            HitStopManager.Instance.TriggerHitStop(hitStopDuration);
+            target.TakeDamage(Mathf.RoundToInt(currentAttackData.Damage), hitPoint);
+            OnHitDetected?.Invoke(hitPoint);
         }
     }
 }
