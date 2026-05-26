@@ -8,26 +8,24 @@ public class RobotCombat : MonoBehaviour
 
     [SerializeField] private AttackDataStats[] comboSequence;
     [SerializeField] private float comboResetTime = 2.5f;
-    [SerializeField] private LayerMask targetLayer;
-    [SerializeField] private float attackVerticalOffset = 1.0f;
-    [SerializeField] private float attackForwardOffsetMultiplier = 0.5f;
     [SerializeField] private Animator animator;
     [SerializeField] private Enemy enemyStats;
     [SerializeField] private EnemyEnergy enemyEnergy;
     [SerializeField] private string robotName;
     [SerializeField] private float energyAmount;
 
-    [Header("Effects")]
-    [SerializeField] private GameObject hitEffectPrefab;
-    [SerializeField] private Transform hitEffectSpawnPoint;
+    [SerializeField] private MeleeHitbox[] handHitboxes;
+    [SerializeField] private CombatAnimationDispatcher animationDispatcher;
 
     private int currentComboIndex;
     private int totalComboCounter;
     private float lastAttackTime;
+    private int activeAttackDamage;
+    private readonly int sequenceStartIndex = 0;
 
     private void Awake()
     {
-        if (!animator) animator = GetComponent<Animator>();
+        if (!animator) animator = GetComponentInChildren<Animator>();
         if (!enemyStats) enemyStats = GetComponent<Enemy>();
         if (!enemyEnergy) enemyEnergy = GetComponent<EnemyEnergy>();
 
@@ -39,7 +37,13 @@ public class RobotCombat : MonoBehaviour
     {
         if (enemyStats)
         {
-            enemyStats.OnDamageTaken += ResetComboValues;
+            enemyStats.OnDamageTaken += HandleDamageTakenReaction;
+        }
+
+        if (animationDispatcher)
+        {
+            animationDispatcher.OnHitboxEnableRequested += EnableAttackHitboxes;
+            animationDispatcher.OnHitboxDisableRequested += DisableAttackHitboxes;
         }
     }
 
@@ -47,7 +51,35 @@ public class RobotCombat : MonoBehaviour
     {
         if (enemyStats)
         {
-            enemyStats.OnDamageTaken -= ResetComboValues;
+            enemyStats.OnDamageTaken -= HandleDamageTakenReaction;
+        }
+
+        if (animationDispatcher)
+        {
+            animationDispatcher.OnHitboxEnableRequested -= EnableAttackHitboxes;
+            animationDispatcher.OnHitboxDisableRequested -= DisableAttackHitboxes;
+        }
+    }
+
+    private void HandleDamageTakenReaction()
+    {
+        ResetComboValues();
+        DisableAttackHitboxes();
+    }
+
+    private void EnableAttackHitboxes()
+    {
+        foreach (MeleeHitbox hitbox in handHitboxes)
+        {
+            hitbox.ActivateHitbox(activeAttackDamage);
+        }
+    }
+
+    private void DisableAttackHitboxes()
+    {
+        foreach (MeleeHitbox hitbox in handHitboxes)
+        {
+            hitbox.DeactivateHitbox();
         }
     }
 
@@ -67,12 +99,14 @@ public class RobotCombat : MonoBehaviour
         enemyEnergy.ConsumeEnergy(energyAmount);
 
         totalComboCounter++;
+        activeAttackDamage = currentAttack.Damage;
+
         ExecuteAttack(currentAttack);
 
         currentComboIndex++;
         if (currentComboIndex >= comboSequence.Length)
         {
-            currentComboIndex = 0;
+            currentComboIndex = sequenceStartIndex;
         }
 
         lastAttackTime = Time.time;
@@ -80,8 +114,8 @@ public class RobotCombat : MonoBehaviour
 
     private void ResetComboValues()
     {
-        currentComboIndex = 0;
-        totalComboCounter = 0;
+        currentComboIndex = sequenceStartIndex;
+        totalComboCounter = sequenceStartIndex;
 
         OnComboExecuted?.Invoke(gameObject, robotName, totalComboCounter);
     }
@@ -91,28 +125,5 @@ public class RobotCombat : MonoBehaviour
         if (animator) animator.SetTrigger(attack.AnimationTrigger);
 
         OnComboExecuted?.Invoke(gameObject, robotName, totalComboCounter);
-
-        Vector3 origin = transform.position + Vector3.up * attackVerticalOffset + transform.forward * (attack.AttackRange * attackForwardOffsetMultiplier);
-        Collider[] hits = Physics.OverlapSphere(origin, attack.AttackRadius, targetLayer);
-
-        for (int i = 0; i < hits.Length; i++)
-        {
-            IDamageable dmg = hits[i].GetComponentInParent<IDamageable>();
-            if (dmg != null)
-            {
-                dmg.TakeDamage(attack.Damage);
-                SpawnHitEffect(hits[i]);
-                break;
-            }
-        }
-    }
-
-    private void SpawnHitEffect(Collider hitCollider)
-    {
-        if (hitEffectPrefab != null)
-        {
-            Vector3 spawnPosition = hitEffectSpawnPoint != null ? hitEffectSpawnPoint.position : hitCollider.ClosestPoint(transform.position);
-            Instantiate(hitEffectPrefab, spawnPosition, Quaternion.identity);
-        }
     }
 }
