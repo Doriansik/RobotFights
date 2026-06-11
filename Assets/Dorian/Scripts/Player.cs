@@ -5,10 +5,11 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float backwardSpeedMultiplier;
     [SerializeField] private float jumpForce;
     [SerializeField] private float rotateSpeed;
-    [SerializeField] private float rotationRightY = 90f;
-    [SerializeField] private float rotationLeftY = 270f;
+    [SerializeField] private float rotationRightY;
+    [SerializeField] private float rotationLeftY;
 
     [SerializeField] private float distanceToGround;
     [SerializeField] private float groundOffset;
@@ -17,13 +18,15 @@ public class Player : MonoBehaviour
     [SerializeField] private float crouchLerpSpeed;
     [SerializeField] private float colliderCenterMultiplier;
 
-    [SerializeField] private float normalSpeedMultiplier = 1f;
-    [SerializeField] private float exhaustedSpeedMultiplier = 0.5f;
-    [SerializeField] private float zeroFloatValue = 0f;
+    [SerializeField] private float normalSpeedMultiplier;
+    [SerializeField] private float exhaustedSpeedMultiplier;
+    [SerializeField] private float zeroFloatValue;
 
     [SerializeField] private InputActionReference actionCrouch;
     [SerializeField] private InputActionReference actionMove;
     [SerializeField] private InputActionReference actionJump;
+
+    [SerializeField] private Transform targetOpponent;
 
     private Vector2 inputDirection;
     private CapsuleCollider col;
@@ -33,6 +36,9 @@ public class Player : MonoBehaviour
     private bool isCrouching;
     private CombatController combatController;
     private PlayerEnergy playerEnergy;
+
+    private readonly int moveXHash = Animator.StringToHash("MoveX");
+    private readonly int moveZHash = Animator.StringToHash("MoveZ");
 
     private void Awake()
     {
@@ -49,11 +55,11 @@ public class Player : MonoBehaviour
         if (combatController != null && combatController.CurrentState is not IdleState)
         {
             inputDirection = Vector2.zero;
-            animator.SetBool("Movement", false);
+            UpdateAnimator(Vector3.zero);
             return;
         }
 
-        HandleMovementInput();
+        HandleInput();
         HandleJump();
         HandleCrouch();
         HandleRotation();
@@ -66,17 +72,16 @@ public class Player : MonoBehaviour
         HandleMovement();
     }
 
-    private void HandleMovementInput()
+    private void HandleInput()
     {
         inputDirection = actionMove.action.ReadValue<Vector2>();
-        animator.SetBool("Movement", inputDirection != Vector2.zero);
     }
 
     private void HandleRotation()
     {
-        if (inputDirection.x != zeroFloatValue)
+        if (targetOpponent != null)
         {
-            float targetY = inputDirection.x > zeroFloatValue ? rotationRightY : rotationLeftY;
+            float targetY = targetOpponent.position.x > transform.position.x ? rotationRightY : rotationLeftY;
             Quaternion targetRot = Quaternion.Euler(zeroFloatValue, targetY, zeroFloatValue);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * rotateSpeed);
         }
@@ -94,23 +99,36 @@ public class Player : MonoBehaviour
     {
         isCrouching = actionCrouch.action.IsPressed();
 
-        if (isCrouching)
-        {
-            col.height = Mathf.Lerp(col.height, crouchHeight, Time.deltaTime * crouchLerpSpeed);
-            col.center = new Vector3(col.center.x, crouchHeight / colliderCenterMultiplier, col.center.z);
-        }
-        else
-        {
-            col.height = Mathf.Lerp(col.height, originalHeight, Time.deltaTime * crouchLerpSpeed);
-            col.center = new Vector3(col.center.x, originalHeight / colliderCenterMultiplier, col.center.z);
-        }
+        float targetHeight = isCrouching ? crouchHeight : originalHeight;
+        col.height = Mathf.Lerp(col.height, targetHeight, Time.deltaTime * crouchLerpSpeed);
+        col.center = new Vector3(col.center.x, targetHeight / colliderCenterMultiplier, col.center.z);
     }
 
     private void HandleMovement()
     {
-        float currentMultiplier = playerEnergy.IsExhausted ? exhaustedSpeedMultiplier : normalSpeedMultiplier;
-        Vector3 movement = new Vector3(inputDirection.x, zeroFloatValue, zeroFloatValue) * (moveSpeed * currentMultiplier * Time.fixedDeltaTime);
-        rb.MovePosition(rb.position + movement);
+        Vector3 movementVector = new Vector3(inputDirection.x, zeroFloatValue, inputDirection.y);
+
+        float energyMultiplier = playerEnergy.IsExhausted ? exhaustedSpeedMultiplier : normalSpeedMultiplier;
+
+        bool isMovingBackward = Vector3.Dot(movementVector.normalized, transform.forward) < zeroFloatValue;
+        float directionMultiplier = isMovingBackward ? backwardSpeedMultiplier : normalSpeedMultiplier;
+
+        float currentSpeed = moveSpeed * energyMultiplier * directionMultiplier;
+
+        Vector3 finalMovement = movementVector * (currentSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + finalMovement);
+
+        UpdateAnimator(movementVector * currentSpeed);
+    }
+
+    private void UpdateAnimator(Vector3 worldVelocity)
+    {
+        if (moveSpeed == zeroFloatValue) return;
+
+        Vector3 localVelocity = transform.InverseTransformDirection(worldVelocity);
+
+        animator.SetFloat(moveXHash, localVelocity.x / moveSpeed);
+        animator.SetFloat(moveZHash, localVelocity.z / moveSpeed);
     }
 
     private bool IsGrounded()
