@@ -27,7 +27,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -88,7 +88,322 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: T-poze(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base Human001
+      parentName: T-poze(Clone)
+      position: {x: 0.0000011635474, y: -0.000000020712614, z: -0.062163696}
+      rotation: {x: 0.50000006, y: -0.5, z: -0.4999999, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLPlatform001
+      parentName: T-poze(Clone)
+      position: {x: -0.14999884, y: -0.000000023854758, z: -0.02951567}
+      rotation: {x: 0.50000006, y: -0.5, z: -0.4999999, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRPlatform001
+      parentName: T-poze(Clone)
+      position: {x: 0.1531015, y: -0.00000002385476, z: -0.029515626}
+      rotation: {x: 0.50000006, y: -0.5, z: -0.4999999, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Box032
+      parentName: T-poze(Clone)
+      position: {x: 0.15889017, y: -0.020541152, z: -0.09285095}
+      rotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Box033
+      parentName: T-poze(Clone)
+      position: {x: -0.0053580855, y: 0.92046857, z: 2.443008}
+      rotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+      scale: {x: 0.911785, y: 0.911785, z: 0.911785}
+    - name: Box034
+      parentName: T-poze(Clone)
+      position: {x: -0.00439876, y: 1.3122594, z: 2.3375113}
+      rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 0.936805, y: 0.778574, z: 1.049267}
+    - name: Box035
+      parentName: T-poze(Clone)
+      position: {x: -0.004398761, y: 1.3110812, z: 2.4436252}
+      rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 0.936805, y: 0.936805, z: 1.049267}
+    - name: Box036
+      parentName: T-poze(Clone)
+      position: {x: -0.0043864693, y: 1.3122594, z: 2.5230598}
+      rotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+      scale: {x: 0.936805, y: 0.793229, z: 1.049267}
+    - name: Box037
+      parentName: T-poze(Clone)
+      position: {x: 0.000017272458, y: 1.6815084, z: 2.3835797}
+      rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 0.900298, y: 0.974427, z: 0.853336}
+    - name: Box038
+      parentName: T-poze(Clone)
+      position: {x: -0.16929859, y: 1.5413841, z: 2.4290266}
+      rotation: {x: 0.36727005, y: 0.60424554, z: -0.36727, w: 0.60424566}
+      scale: {x: 1.660448, y: 1.495649, z: 1.523893}
+    - name: Box039
+      parentName: T-poze(Clone)
+      position: {x: 0.40751693, y: 1.633235, z: -0.12061686}
+      rotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+      scale: {x: 0.995712, y: 1.027944, z: 1.027944}
+    - name: Box040
+      parentName: T-poze(Clone)
+      position: {x: 1.0026686, y: 1.4981343, z: -0.11552536}
+      rotation: {x: -0.000000030908623, y: 0.7071068, z: 0.7071068, w: 0.000000030908623}
+      scale: {x: 0.703939, y: 0.703939, z: 0.703939}
+    - name: Box041
+      parentName: T-poze(Clone)
+      position: {x: -0.15589716, y: 0.54568636, z: 2.4036968}
+      rotation: {x: 1, y: -7.253408e-16, z: -0.000000007450581, w: -0.00000009735359}
+      scale: {x: 0.671445, y: 0.68732, z: 0.532721}
+    - name: Box042
+      parentName: T-poze(Clone)
+      position: {x: -0.14786726, y: -0.01629551, z: 0.0021665953}
+      rotation: {x: -0.000000053385083, y: 0.7071068, z: 0.7071068, w: 0.000000053385083}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cylinder051
+      parentName: T-poze(Clone)
+      position: {x: -0.15517232, y: 0.13752355, z: 2.4263568}
+      rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 1.091581, y: 1.091581, z: 1.091581}
+    - name: Cylinder052
+      parentName: T-poze(Clone)
+      position: {x: -0.14667882, y: 0.23455784, z: 2.4196973}
+      rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 1.394085, y: 1.394085, z: 1.106425}
+    - name: Cylinder053
+      parentName: T-poze(Clone)
+      position: {x: -0.14566576, y: 0.53647035, z: 2.4203672}
+      rotation: {x: -0.009170614, y: 0.70704734, z: 0.70704734, w: 0.009170614}
+      scale: {x: 1.211475, y: 1.211475, z: 1.211475}
+    - name: Cylinder054
+      parentName: T-poze(Clone)
+      position: {x: -0.14519595, y: 0.64333475, z: 2.4226923}
+      rotation: {x: -0.009170614, y: 0.70704734, z: 0.70704734, w: 0.009170614}
+      scale: {x: 1.394085, y: 1.394085, z: 1.106425}
+    - name: Cylinder055
+      parentName: T-poze(Clone)
+      position: {x: -0.004398761, y: 1.0716435, z: 2.4349697}
+      rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 2.400273, y: 2.400273, z: 2.53627}
+    - name: Cylinder056
+      parentName: T-poze(Clone)
+      position: {x: -0.004398761, y: 1.1565293, z: 2.4349697}
+      rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 3.013424, y: 3.013424, z: 2.53627}
+    - name: Cylinder057
+      parentName: T-poze(Clone)
+      position: {x: -0.004398761, y: 1.2389302, z: 2.4349697}
+      rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 3.961083, y: 3.961083, z: 2.53627}
+    - name: Cylinder058
+      parentName: T-poze(Clone)
+      position: {x: -0.61416256, y: 1.5228678, z: -0.11210586}
+      rotation: {x: 0.4947928, y: 0.50515324, z: 0.49215052, w: 0.50772846}
+      scale: {x: 1.222759, y: 1.222759, z: 1.222759}
+    - name: Cylinder059
+      parentName: T-poze(Clone)
+      position: {x: -0.30811316, y: 1.520923, z: 2.4224112}
+      rotation: {x: 0.7071068, y: 0.00000006883939, z: 0.7071068, w: -0.00000006883939}
+      scale: {x: 1.345022, y: 1.345022, z: 1.345022}
+    - name: Cylinder060
+      parentName: T-poze(Clone)
+      position: {x: -0.93030554, y: 1.5228678, z: -0.11549362}
+      rotation: {x: 0.4947928, y: 0.50515324, z: 0.49215052, w: 0.50772846}
+      scale: {x: 1.222759, y: 1.222759, z: 1.222759}
+    - name: Cylinder061
+      parentName: T-poze(Clone)
+      position: {x: -0.002393133, y: 1.7456573, z: 2.4203672}
+      rotation: {x: 0.5000001, y: -0.4999999, z: 0.50000006, w: 0.49999994}
+      scale: {x: 1.211475, y: 1.211475, z: 1.211475}
+    - name: Cylinder062
+      parentName: T-poze(Clone)
+      position: {x: -0.80114454, y: 1.5232083, z: -0.111368865}
+      rotation: {x: 0.7071068, y: 0.00000006883938, z: 0.7071067, w: -0.00000006883939}
+      scale: {x: 1.976235, y: 1.976235, z: 1.126411}
+    - name: Cylinder063
+      parentName: T-poze(Clone)
+      position: {x: -0.49833533, y: 1.5232623, z: -0.10793472}
+      rotation: {x: 0.5000001, y: 0.5000001, z: 0.49999988, w: 0.49999994}
+      scale: {x: 2.071836, y: 2.071836, z: 1.180902}
+    - name: Cylinder064
+      parentName: T-poze(Clone)
+      position: {x: 0.29350346, y: 1.522522, z: -0.04352676}
+      rotation: {x: 0.7071068, y: 0.7071068, z: -0.00000006883939, w: -0.0000000688394}
+      scale: {x: 0.126904, y: 0.126904, z: 0.271418}
+    - name: Cylinder065
+      parentName: T-poze(Clone)
+      position: {x: 0.3040644, y: 1.531204, z: -0.18700069}
+      rotation: {x: 0.000000015454312, y: 0.00000001545431, z: 0.7071068, w: 0.7071068}
+      scale: {x: 0.129246, y: 0.129246, z: 0.276427}
+    - name: Cylinder066
+      parentName: T-poze(Clone)
+      position: {x: -0.1838988, y: 1.5181302, z: 2.4961922}
+      rotation: {x: 0.7071068, y: 0.7071068, z: -0.00000006883939, w: -0.00000006883939}
+      scale: {x: 0.129246, y: 0.129246, z: 0.295577}
+    - name: Cylinder067
+      parentName: T-poze(Clone)
+      position: {x: -0, y: 1.0659513, z: 2.4251337}
+      rotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+      scale: {x: 0.992557, y: 0.992557, z: 0.992557}
+    - name: Cylinder068
+      parentName: T-poze(Clone)
+      position: {x: 0.62023723, y: 1.5888879, z: -0.10903732}
+      rotation: {x: 0.5000001, y: 0.49999988, z: -0.50000006, w: 0.49999997}
+      scale: {x: 0.126904, y: 0.126904, z: 0.271418}
+    - name: Cylinder069
+      parentName: T-poze(Clone)
+      position: {x: -0.49177137, y: 0.4402184, z: 2.4244995}
+      rotation: {x: 0.5000001, y: 0.5000001, z: 0.49999988, w: 0.49999994}
+      scale: {x: 2.052716, y: 2.052716, z: 1.170004}
+    - name: Cylinder070
+      parentName: T-poze(Clone)
+      position: {x: 0.29018137, y: 0.4877912, z: 2.4802449}
+      rotation: {x: 0.7071068, y: 0.7071068, z: -0.00000006883939, w: -0.0000000688394}
+      scale: {x: 0.125733, y: 0.125733, z: 0.268913}
+    - name: Cylinder071
+      parentName: T-poze(Clone)
+      position: {x: -0.2844399, y: 0.08890993, z: -0.17523819}
+      rotation: {x: 0.000000015454312, y: 0.000000015454312, z: 0.7071068, w: 0.7071068}
+      scale: {x: 0.125733, y: 0.125733, z: 0.268913}
+    - name: Cylinder072
+      parentName: T-poze(Clone)
+      position: {x: -0.15002842, y: 1.695013, z: -0.11616989}
+      rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 1.40707, y: 1.40707, z: 1.116731}
+    - name: Cylinder073
+      parentName: T-poze(Clone)
+      position: {x: -0.1485317, y: 1.4106549, z: -0.10975906}
+      rotation: {x: -0.009170614, y: 0.70704734, z: 0.70704734, w: 0.009170614}
+      scale: {x: 1.40707, y: 1.40707, z: 1.116731}
+    - name: Cylinder074
+      parentName: T-poze(Clone)
+      position: {x: -0.06267307, y: 1.8104507, z: 2.422812}
+      rotation: {x: 0.5000001, y: 0.5000001, z: 0.49999988, w: 0.49999994}
+      scale: {x: 0.131815, y: 0.131815, z: 0.281922}
+    - name: Cylinder075
+      parentName: T-poze(Clone)
+      position: {x: -0.070753954, y: 0.51888967, z: 2.417877}
+      rotation: {x: -0.49999997, y: -0.49999997, z: 0.5, w: 0.50000006}
+      scale: {x: 0.134248, y: 0.134248, z: 0.287125}
+    - name: Base HumanPelvis001
+      parentName: T-poze(Clone)
+      position: {x: 0.0000012375058, y: 0.9725914, z: 0.07025102}
+      rotation: {x: 0.4991273, y: -0.50087184, z: 0.49912667, w: -0.5008712}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRThigh001
+      parentName: Base HumanPelvis001
+      position: {x: -0.02579834, y: 0.07034147, z: -0.151209}
+      rotation: {x: 0.008785336, y: 0.99994314, z: 0.0059133703, w: -0.0012570601}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRCalf001
+      parentName: Base HumanRThigh001
+      position: {x: -0.48822597, y: 0.000004005432, z: 0.0000015258788}
+      rotation: {x: -0.00020833543, y: -0.00013942171, z: -0.0000010860979, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRFoot001
+      parentName: Base HumanRCalf001
+      position: {x: -0.3953634, y: 0, z: 0.000000009536743}
+      rotation: {x: 0.004363318, y: 0.002771682, z: -0.71178347, w: 0.70237994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLThigh001
+      parentName: Base HumanPelvis001
+      position: {x: -0.025800858, y: 0.07034147, z: 0.15000004}
+      rotation: {x: 0.008182894, y: 0.9999515, z: -0.0054622306, w: 0.0005560085}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLCalf001
+      parentName: Base HumanLThigh001
+      position: {x: -0.47542232, y: 0.0000041103362, z: -0.0000018501281}
+      rotation: {x: 0.00022831434, y: 0.0007609303, z: 0.00083115295, w: 0.99999934}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLFoot001
+      parentName: Base HumanLCalf001
+      position: {x: -0.40912834, y: 0, z: 0}
+      rotation: {x: -0.0034796817, y: -0.003769702, z: -0.71324486, w: 0.7008962}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanSpine004
+      parentName: Base HumanPelvis001
+      position: {x: -0.072602846, y: 0.05163081, z: -0.000000013498356}
+      rotation: {x: -0.000000013691639, y: -0.000000104286, z: -0.0033741405, w: 0.99999434}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanSpine005
+      parentName: Base HumanSpine004
+      position: {x: -0.112394944, y: 0.000000009536743, z: 0}
+      rotation: {x: 0.000000017523082, y: 0.00000005717549, z: -0.0017730498, w: 0.99999845}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanSpine006
+      parentName: Base HumanSpine005
+      position: {x: -0.09590889, y: 0, z: -7.2759575e-14}
+      rotation: {x: -0.000000005381934, y: 0.000000032175258, z: -0.0050917915, w: 0.99998707}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRibcage001
+      parentName: Base HumanSpine006
+      position: {x: -0.32036293, y: 0.000000009536743, z: 1.4551915e-13}
+      rotation: {x: -0.0000000020581656, y: -0.0000000036810979, z: 0.008494469, w: 0.99996394}
+      scale: {x: 0.999999, y: 0.999999, z: 1}
+    - name: Base HumanNeck003
+      parentName: Base HumanRibcage001
+      position: {x: -0.0011900329, y: 0.004812956, z: -0.000000010062649}
+      rotation: {x: 0.0000002116662, y: 0.00000009793729, z: 0.00000002284776, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanNeck004
+      parentName: Base HumanNeck003
+      position: {x: -0.13603927, y: 0, z: 0}
+      rotation: {x: 1.4733093e-14, y: -4.8979543e-13, z: 0.31865066, w: 0.9478722}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHead001
+      parentName: Base HumanNeck004
+      position: {x: -0.04065323, y: 0, z: 0}
+      rotation: {x: -0.00000023184033, y: -0.000000025383923, z: -0.3186507, w: 0.9478722}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRCollarbone001
+      parentName: Base HumanRibcage001
+      position: {x: 0.054146424, y: 0.01711626, z: -0.04512196}
+      rotation: {x: 0.06037948, y: -0.7085111, z: 0.08249886, w: 0.6982551}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRUpperarm001
+      parentName: Base HumanRCollarbone001
+      position: {x: -0.22836475, y: -0.000000019073486, z: -0.00000030517577}
+      rotation: {x: -0.100132786, y: 0.012569608, z: -0.034931067, w: 0.9942813}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRForearm001
+      parentName: Base HumanRUpperarm001
+      position: {x: -0.023015765, y: -0.000000009536743, z: 0}
+      rotation: {x: 0.028856266, y: -0.0018947967, z: 0.024105782, w: 0.9992911}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanR3
+      parentName: Base HumanRForearm001
+      position: {x: -0.33167443, y: 0.00000015258789, z: -0.00000045776366}
+      rotation: {x: 0.013715044, y: -0.006841787, z: -0.004688721, w: 0.99987155}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRPalm001
+      parentName: Base HumanR3
+      position: {x: -0.26863953, y: -0.00000015258789, z: -0.00000030517577}
+      rotation: {x: -0.059231594, y: -0.014859987, z: 0.0002026196, w: 0.99813366}
+      scale: {x: 1, y: 1.000001, z: 0.999999}
+    - name: Base HumanLCollarbone001
+      parentName: Base HumanRibcage001
+      position: {x: 0.05414703, y: 0.017116241, z: 0.045121916}
+      rotation: {x: -0.061368577, y: 0.7080666, z: 0.08149138, w: 0.698738}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLUpperarm001
+      parentName: Base HumanLCollarbone001
+      position: {x: -0.2510644, y: 0.000000038146972, z: -0.00000030517577}
+      rotation: {x: 0.101034105, y: -0.006455794, z: -0.0156141305, w: 0.99473953}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLForearm001
+      parentName: Base HumanLUpperarm001
+      position: {x: -0.32838196, y: 0, z: -0.00000015258789}
+      rotation: {x: 0.013315947, y: -0.00027637868, z: 0.0041821655, w: 0.99990255}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLPalm001
+      parentName: Base HumanLForearm001
+      position: {x: -0.3170654, y: 0, z: 0.00000015258789}
+      rotation: {x: -0.00000030498882, y: -0.000006813112, z: 0.00007119027, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -99,7 +414,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
