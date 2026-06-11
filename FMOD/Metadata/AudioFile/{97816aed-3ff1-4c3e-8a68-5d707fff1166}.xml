@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{97816aed-3ff1-4c3e-8a68-5d707fff1166}">
+		<property name="assetPath">
+			<value>MetalRobot_Footsteps_03.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.45600000000000002</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{86935841-fa2b-4caf-97b1-d17308ad5162}</destination>
+		</relationship>
+	</object>
+</objects>
