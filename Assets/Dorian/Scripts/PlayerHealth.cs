@@ -24,12 +24,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        SpawnBloodEffect();
+        OnDamageTaken?.Invoke();
+
         if (damage <= 0 || IsDead) return;
 
         CurrentHp -= damage;
         OnHealthChanged?.Invoke(CurrentHp);
-        SpawnBloodEffect();
-        OnDamageTaken?.Invoke();
 
         if (CurrentHp <= 0)
         {
@@ -64,7 +65,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (bloodEffectPrefab != null)
         {
             Vector3 spawnPosition = bloodEffectSpawnPoint != null ? bloodEffectSpawnPoint.position : transform.position;
-            Instantiate(bloodEffectPrefab, spawnPosition, Quaternion.identity);
+            GameObject blood = Instantiate(bloodEffectPrefab, spawnPosition, Quaternion.identity);
+            Destroy(blood, 2f);
         }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(HitboxManager))]
+[RequireComponent(typeof(HitboxManager), typeof(PlayerEnergy))]
 public class CombatController : MonoBehaviour
 {
     public AttackData NeutralLightStartNode;
@@ -16,6 +16,7 @@ public class CombatController : MonoBehaviour
     public InputBuffer CombatInputBuffer { get; private set; }
     public Animator CharacterAnimator { get; private set; }
     public HitboxManager HitboxExecutor { get; private set; }
+    public PlayerEnergy EnergyManager { get; private set; }
     public float LastAttackEndTime { get; private set; }
 
     private void Awake()
@@ -23,6 +24,7 @@ public class CombatController : MonoBehaviour
         CombatInputBuffer = new InputBuffer(InputBufferDuration);
         CharacterAnimator = GetComponentInChildren<Animator>();
         HitboxExecutor = GetComponent<HitboxManager>();
+        EnergyManager = GetComponent<PlayerEnergy>();
         LastAttackEndTime = -AttackCooldown;
     }
 

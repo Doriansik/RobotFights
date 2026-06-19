@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider))]
+[RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider), typeof(PlayerEnergy))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
     [SerializeField] private float crouchLerpSpeed;
     [SerializeField] private float colliderCenterMultiplier;
 
+    [SerializeField] private float normalSpeedMultiplier = 1f;
+    [SerializeField] private float exhaustedSpeedMultiplier = 0.5f;
+    [SerializeField] private float zeroFloatValue = 0f;
+
     [SerializeField] private InputActionReference actionCrouch;
     [SerializeField] private InputActionReference actionMove;
     [SerializeField] private InputActionReference actionJump;
@@ -28,6 +32,7 @@ public class Player : MonoBehaviour
     private float originalHeight;
     private bool isCrouching;
     private CombatController combatController;
+    private PlayerEnergy playerEnergy;
 
     private void Awake()
     {
@@ -35,6 +40,7 @@ public class Player : MonoBehaviour
         col = GetComponent<CapsuleCollider>();
         animator = GetComponentInChildren<Animator>();
         combatController = GetComponent<CombatController>();
+        playerEnergy = GetComponent<PlayerEnergy>();
         originalHeight = col.height;
     }
 
@@ -68,10 +74,10 @@ public class Player : MonoBehaviour
 
     private void HandleRotation()
     {
-        if (inputDirection.x != 0)
+        if (inputDirection.x != zeroFloatValue)
         {
-            float targetY = inputDirection.x > 0 ? rotationRightY : rotationLeftY;
-            Quaternion targetRot = Quaternion.Euler(0, targetY, 0);
+            float targetY = inputDirection.x > zeroFloatValue ? rotationRightY : rotationLeftY;
+            Quaternion targetRot = Quaternion.Euler(zeroFloatValue, targetY, zeroFloatValue);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * rotateSpeed);
         }
     }
@@ -102,7 +108,8 @@ public class Player : MonoBehaviour
 
     private void HandleMovement()
     {
-        Vector3 movement = new Vector3(inputDirection.x, 0, 0) * (moveSpeed * Time.fixedDeltaTime);
+        float currentMultiplier = playerEnergy.IsExhausted ? exhaustedSpeedMultiplier : normalSpeedMultiplier;
+        Vector3 movement = new Vector3(inputDirection.x, zeroFloatValue, zeroFloatValue) * (moveSpeed * currentMultiplier * Time.fixedDeltaTime);
         rb.MovePosition(rb.position + movement);
     }
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody), typeof(EnemyEnergy))]
 public class RobotMovement : MonoBehaviour, IAttacker
 {
     [SerializeField] private Transform target;
@@ -9,13 +9,16 @@ public class RobotMovement : MonoBehaviour, IAttacker
     [SerializeField] private float waitDistance = 4.0f;
     [SerializeField] private float tokenRequestDistance = 5.0f;
     [SerializeField] private float rotateSpeed = 12f;
+    [SerializeField] private float normalSpeedMultiplier = 1f;
+    [SerializeField] private float exhaustedSpeedMultiplier = 0.5f;
+    [SerializeField] private float zeroFloatValue = 0f;
     [SerializeField] private Animator animator;
     [SerializeField] private RobotCombat combatModule;
+    [SerializeField] private EnemyEnergy enemyEnergy;
 
     private Rigidbody rb;
     private bool isAttackingRole;
     private const float DistanceEpsilon = 0.001f;
-    private const string MovementAnimatorParameter = "Movement";
 
     public GameObject GameObject => gameObject;
 
@@ -23,9 +26,9 @@ public class RobotMovement : MonoBehaviour, IAttacker
     {
         rb = GetComponent<Rigidbody>();
         rb.interpolation = RigidbodyInterpolation.Interpolate;
-
-        if (animator == null) animator = GetComponent<Animator>();
-        if (combatModule == null) combatModule = GetComponent<RobotCombat>();
+        if (!animator) animator = GetComponent<Animator>();
+        if (!combatModule) combatModule = GetComponent<RobotCombat>();
+        if (!enemyEnergy) enemyEnergy = GetComponent<EnemyEnergy>();
     }
 
     private void OnDestroy()
@@ -38,48 +41,42 @@ public class RobotMovement : MonoBehaviour, IAttacker
 
     private void FixedUpdate()
     {
-        if (target == null) return;
+        if (!target) return;
 
         Vector3 toTarget = target.position - transform.position;
-        toTarget.y = 0f;
+        toTarget.y = zeroFloatValue;
         float dist = toTarget.magnitude;
 
         if (!isAttackingRole && AttackCoordinator.Instance != null && dist <= tokenRequestDistance)
         {
             isAttackingRole = AttackCoordinator.Instance.TryGetAttackToken(this);
         }
-    }
 
-    private void HandleRotation(Vector3 toTarget, float distanceToTarget)
-    {
-        if (distanceToTarget > DistanceEpsilon)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(toTarget.normalized, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotateSpeed);
-        }
-    }
-
-    private void HandleMovementAndCombat(Vector3 moveDirection, float distanceToTarget)
-    {
         float currentTargetDistance = isAttackingRole ? attackDistance : waitDistance;
-        bool canMove = distanceToTarget > currentTargetDistance;
 
         if (dist > DistanceEpsilon)
         {
-            animator.SetBool(MovementAnimatorParameter, canMove);
+            Quaternion rot = Quaternion.LookRotation(toTarget.normalized, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.fixedDeltaTime * rotateSpeed);
         }
+
+        bool canMove = dist > currentTargetDistance;
+        if (animator) animator.SetBool("Movement", canMove);
 
         if (canMove)
         {
-            Vector3 moveVector = moveDirection * (moveSpeed * Time.fixedDeltaTime);
-            rb.MovePosition(rb.position + moveVector);
+            float currentMultiplier = enemyEnergy.IsExhausted ? exhaustedSpeedMultiplier : normalSpeedMultiplier;
+            Vector3 move = toTarget.normalized * (moveSpeed * currentMultiplier * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + move);
         }
         else if (isAttackingRole)
         {
-            if (combatModule != null)
-            {
-                combatModule.TryAttack();
-            }
+            combatModule.TryAttack();
         }
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 }
