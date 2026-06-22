@@ -5376,7 +5376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HitFeedbackManager
   hitboxManager: {fileID: 1708204930}
   hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
-  cameraShakeStress: 0.1
+  cameraShakeStress: 0.11
   hitStopDuration: 0.1
   effectDestroyDelay: 2
 --- !u!114 &1708204930 stripped
