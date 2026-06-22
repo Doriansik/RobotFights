@@ -79,14 +79,15 @@ GameObject:
   - component: {fileID: 3715539846236467858}
   - component: {fileID: 9061601896580628985}
   - component: {fileID: 1528189992134595382}
-  - component: {fileID: 8596581978790690888}
+  - component: {fileID: 4163707059488836851}
+  - component: {fileID: 2940187344160495836}
   m_Layer: 6
   m_Name: SecondEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5494827929839799491
 Transform:
   m_ObjectHideFlags: 0
@@ -188,7 +189,6 @@ MonoBehaviour:
   rotateSpeed: 12
   normalSpeedMultiplier: 1
   exhaustedSpeedMultiplier: 0.5
-  zeroFloatValue: 0
   animator: {fileID: 6417612082941628852}
   combatModule: {fileID: 2542998183384044715}
   enemyEnergy: {fileID: 9061601896580628985}
@@ -219,11 +219,10 @@ MonoBehaviour:
   animator: {fileID: 6417612082941628852}
   enemyStats: {fileID: 208317505304397515}
   enemyEnergy: {fileID: 9061601896580628985}
-  robotName: MetalRobot
   energyAmount: 15
   handHitboxes:
-  - {fileID: 3527365771091358235}
-  animationDispatcher: {fileID: 7211489304368136199}
+  - {fileID: 3387045863679017272}
+  animationDispatcher: {fileID: 4023685354190617439}
 --- !u!114 &3715539846236467858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +268,22 @@ MonoBehaviour:
   bloodEffectPrefab: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
   effectDestroyTime: 2
   bloodSpawnPoint: {fileID: 7851832824966085172}
---- !u!114 &8596581978790690888
+--- !u!114 &4163707059488836851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7877879605837711466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc27ef0b407ee5429c03562ab688324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageEffectSpawner
+  bloodEffectPrefab: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
+  effectDestroyTime: 2
+  bloodSpawnPoint: {fileID: 7851832824966085172}
+--- !u!114 &2940187344160495836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -533,6 +547,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7211489304368136199}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4023685354190617439}
     - targetCorrespondingSourceObject: {fileID: -633842938573820774, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7978589505273443134}
@@ -541,7 +558,13 @@ PrefabInstance:
       addedObject: {fileID: 3527365771091358235}
     - targetCorrespondingSourceObject: {fileID: -633842938573820774, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4753720992414643532}
+      addedObject: {fileID: 2690637185024910285}
+    - targetCorrespondingSourceObject: {fileID: -633842938573820774, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3387045863679017272}
+    - targetCorrespondingSourceObject: {fileID: -633842938573820774, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2000597288309737372}
   m_SourcePrefab: {fileID: 100100000, guid: 23bcfa16e6e1d87488ac695641532c45, type: 3}
 --- !u!1 &334405843928748404 stripped
 GameObject:
@@ -549,6 +572,18 @@ GameObject:
   m_PrefabInstance: {fileID: 605001351255895077}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &7211489304368136199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334405843928748404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e0bd9a1ced0134fa2300db24cd79e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CombatAnimationDispatcher
+--- !u!114 &4023685354190617439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -614,7 +649,46 @@ MonoBehaviour:
   hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
   hitEffectDestroyTime: 2
   hitParticleSpawnPoint: {fileID: 220156160114874229}
---- !u!54 &4753720992414643532
+--- !u!135 &2690637185024910285
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174191649014137023}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.25
+  m_Center: {x: -0.19, y: -0.0099153165, z: 0.16827136}
+--- !u!114 &3387045863679017272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174191649014137023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6194ea7373dab4c46846a38d98e4bd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeHitbox
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
+  hitEffectDestroyTime: 2
+  hitParticleSpawnPoint: {fileID: 220156160114874229}
+--- !u!54 &2000597288309737372
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

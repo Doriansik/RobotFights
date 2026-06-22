@@ -48,7 +48,8 @@ GameObject:
   - component: {fileID: 3283242066541618646}
   - component: {fileID: 6749312679282511722}
   - component: {fileID: 5805660561357446731}
-  - component: {fileID: 6347234770401172444}
+  - component: {fileID: 2656801625713466462}
+  - component: {fileID: 5651907617058858923}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -157,7 +158,6 @@ MonoBehaviour:
   rotateSpeed: 12
   normalSpeedMultiplier: 1
   exhaustedSpeedMultiplier: 0.5
-  zeroFloatValue: 0
   animator: {fileID: 6499451339141080483}
   combatModule: {fileID: 2542998183384044715}
   enemyEnergy: {fileID: 6749312679282511722}
@@ -178,22 +178,21 @@ MonoBehaviour:
     AttackRange: 3
     AttackRadius: 3
     AnimationTrigger: Jab
-    CooldownBeforeNextAttack: 1
+    CooldownBeforeNextAttack: 2
   - Damage: 8
     AttackRange: 3
     AttackRadius: 3
     AnimationTrigger: Swing
-    CooldownBeforeNextAttack: 1
+    CooldownBeforeNextAttack: 2
   comboResetTime: 2.5
   animator: {fileID: 6499451339141080483}
   enemyStats: {fileID: 4979328073486076661}
   enemyEnergy: {fileID: 6749312679282511722}
-  robotName: BigMeanGuy
   energyAmount: 15
   handHitboxes:
-  - {fileID: 2013976653895305111}
-  - {fileID: 1063266204684170250}
-  animationDispatcher: {fileID: 6721261598674169077}
+  - {fileID: 8890208857680081748}
+  - {fileID: 2121905580070388424}
+  animationDispatcher: {fileID: 633583902120311384}
 --- !u!114 &3283242066541618646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +238,22 @@ MonoBehaviour:
   bloodEffectPrefab: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
   effectDestroyTime: 2
   bloodSpawnPoint: {fileID: 4657116270993634867}
---- !u!114 &6347234770401172444
+--- !u!114 &2656801625713466462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7877879605837711466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc27ef0b407ee5429c03562ab688324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageEffectSpawner
+  bloodEffectPrefab: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
+  effectDestroyTime: 2
+  bloodSpawnPoint: {fileID: 4657116270993634867}
+--- !u!114 &5651907617058858923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -630,18 +644,33 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6721261598674169077}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 633583902120311384}
     - targetCorrespondingSourceObject: {fileID: -7611597355151902790, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6400529584791733379}
     - targetCorrespondingSourceObject: {fileID: -7611597355151902790, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2013976653895305111}
+    - targetCorrespondingSourceObject: {fileID: -7611597355151902790, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1113583339270071071}
+    - targetCorrespondingSourceObject: {fileID: -7611597355151902790, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8890208857680081748}
     - targetCorrespondingSourceObject: {fileID: 7529325446763960955, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6932151213955347860}
     - targetCorrespondingSourceObject: {fileID: 7529325446763960955, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1063266204684170250}
+    - targetCorrespondingSourceObject: {fileID: 7529325446763960955, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2532977674834774566}
+    - targetCorrespondingSourceObject: {fileID: 7529325446763960955, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2121905580070388424}
   m_SourcePrefab: {fileID: 100100000, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
 --- !u!1 &547553452096316771 stripped
 GameObject:
@@ -649,6 +678,18 @@ GameObject:
   m_PrefabInstance: {fileID: 817444183071545394}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6721261598674169077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547553452096316771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e0bd9a1ced0134fa2300db24cd79e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CombatAnimationDispatcher
+--- !u!114 &633583902120311384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -709,6 +750,45 @@ MonoBehaviour:
   hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
   hitEffectDestroyTime: 2
   hitParticleSpawnPoint: {fileID: 7690585420173346259}
+--- !u!135 &1113583339270071071
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091369727865548680}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.25934273
+  m_Center: {x: -0.0066216565, y: 0.00000034616096, z: 0.017864492}
+--- !u!114 &8890208857680081748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091369727865548680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6194ea7373dab4c46846a38d98e4bd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeHitbox
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
+  hitEffectDestroyTime: 2
+  hitParticleSpawnPoint: {fileID: 7690585420173346259}
 --- !u!95 &6499451339141080483 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
@@ -741,6 +821,45 @@ SphereCollider:
   m_Radius: 0.35
   m_Center: {x: -0.0066216565, y: 0.00000034616096, z: 0.017864492}
 --- !u!114 &1063266204684170250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144306312835007049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6194ea7373dab4c46846a38d98e4bd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeHitbox
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
+  hitEffectDestroyTime: 2
+  hitParticleSpawnPoint: {fileID: 7690585420173346259}
+--- !u!135 &2532977674834774566
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144306312835007049}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.25934273
+  m_Center: {x: -0.0066216565, y: 0.00000034616096, z: 0.017864492}
+--- !u!114 &2121905580070388424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
