@@ -6258,6 +6258,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8048179894739198336, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      propertyPath: blockAction
+      value: 
+      objectReference: {fileID: 6817746321397947562, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 8048179894739198336, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      propertyPath: perfectBlockWindow
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048179894739198336, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      propertyPath: normalBlockDamageMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8642305558138096793, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.42
