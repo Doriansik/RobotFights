@@ -232,10 +232,14 @@ MonoBehaviour:
   Name: Master
   StudioPath: bank:/Master
 <<<<<<< HEAD
+<<<<<<< HEAD
   lastModified: 639177634447545255
 =======
   lastModified: 639177633666296753
 >>>>>>> 0b8387f (Cutscene)
+=======
+  lastModified: 639177633666296753
+>>>>>>> origin/NEW_DORIAN
   FileSizes:
   - Name: Desktop
     Value: 2681856
@@ -393,10 +397,14 @@ MonoBehaviour:
   - {fileID: 5558592803170237360}
   cacheVersion: 131859
 <<<<<<< HEAD
+<<<<<<< HEAD
   cacheTime: 639177634447570414
 =======
   cacheTime: 639177633666296753
 >>>>>>> 0b8387f (Cutscene)
+=======
+  cacheTime: 639177633666296753
+>>>>>>> origin/NEW_DORIAN
   SerializableEventsDict:
   - key: event:/MUSIC/BackgroundLoopCombat
     index: 0
@@ -566,10 +574,14 @@ MonoBehaviour:
   Name: Master.strings
   StudioPath: bank:/Master.strings
 <<<<<<< HEAD
+<<<<<<< HEAD
   lastModified: 639177634447570414
 =======
   lastModified: 639177633666296753
 >>>>>>> 0b8387f (Cutscene)
+=======
+  lastModified: 639177633666296753
+>>>>>>> origin/NEW_DORIAN
   FileSizes:
   - Name: Desktop
     Value: 1860
