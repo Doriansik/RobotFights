@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9133263061963448494
+--- !u!114 &-7930175498654894818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,287 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/LOCATION/New Event
+  m_Name: event:/FIGHT SOUNDS/HeavyHit
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/LOCATION/New Event
+  Path: event:/FIGHT SOUNDS/HeavyHit
   Guid:
-    Data1: -982744459
-    Data2: 1291543015
-    Data3: -98002804
-    Data4: -1575566359
+    Data1: 730568066
+    Data2: 1311395990
+    Data3: -1067953257
+    Data4: -1375228523
   Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-6644849315482544795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/FIGHT SOUNDS/FallAfterKO
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/FIGHT SOUNDS/FallAfterKO
-  Guid:
-    Data1: -1581881215
-    Data2: 1183311263
-    Data3: -574945627
-    Data4: -611158342
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2000
---- !u!114 &-6475748230059386169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UI/MenuButtonHover
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/UI/MenuButtonHover
-  Guid:
-    Data1: -425765352
-    Data2: 1126044758
-    Data3: -594694239
-    Data4: 785332063
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 230
---- !u!114 &-6312993863383881749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ROBOT MOVEMENT/RobotJumping
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/ROBOT MOVEMENT/RobotJumping
-  Guid:
-    Data1: -118821181
-    Data2: 1272440405
-    Data3: -610016339
-    Data4: 1994015788
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 365
---- !u!114 &-5883941328577359406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SYSTEM/Defeat
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SYSTEM/Defeat
-  Guid:
-    Data1: -69526159
-    Data2: 1236836241
-    Data3: -297138273
-    Data4: -2123355843
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1320
---- !u!114 &-4912792013871877430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BIGMEANGUY/BigMeanGuyLightHit
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/BIGMEANGUY/BigMeanGuyLightHit
-  Guid:
-    Data1: 2067676671
-    Data2: 1156639547
-    Data3: 1909873289
-    Data4: 159797367
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 800
---- !u!114 &-4910906353810388144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UI/MenuButtonClick
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/UI/MenuButtonClick
-  Guid:
-    Data1: 1542458838
-    Data2: 1321502921
-    Data3: 360063128
-    Data4: -455059350
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 235
---- !u!114 &-4461895392642485058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/FIGHT SOUNDS/LightSwing
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/FIGHT SOUNDS/LightSwing
-  Guid:
-    Data1: 1447665517
-    Data2: 1274041496
-    Data3: -1999713621
-    Data4: 1397818486
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 456
---- !u!114 &-2814450495734041432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: FMOD/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-<<<<<<< HEAD
-<<<<<<< HEAD
-  lastModified: 639177634447545255
-=======
-  lastModified: 639177633666296753
->>>>>>> 0b8387f (Cutscene)
-=======
-  lastModified: 639177633666296753
->>>>>>> origin/NEW_DORIAN
-  FileSizes:
-  - Name: Desktop
-    Value: 2681856
-  Exists: 1
---- !u!114 &-2418123501237746030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SYSTEM/Victory
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SYSTEM/Victory
-  Guid:
-    Data1: 489811731
-    Data2: 1102939992
-    Data3: -492922486
-    Data4: -1028315751
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1500
---- !u!114 &-2288725399686547728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Comic/PageTurning
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/Comic/PageTurning
-  Guid:
-    Data1: -470762222
-    Data2: 1120057980
-    Data3: 1071457167
-    Data4: -1839094469
-  Banks:
-  - {fileID: -2814450495734041432}
+  - {fileID: -6216631799811913549}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -298,34 +27,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1200
---- !u!114 &-1446174288693633373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/FIGHT SOUNDS/HitBlockSound
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/FIGHT SOUNDS/HitBlockSound
-  Guid:
-    Data1: -694287552
-    Data2: 1161297347
-    Data3: 1230721980
-    Data4: -800206706
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 680
---- !u!114 &-51582812603984279
+--- !u!114 &-7017221501398659389
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,7 +46,7 @@ MonoBehaviour:
     Data3: -342361715
     Data4: -2005648109
   Banks:
-  - {fileID: -2814450495734041432}
+  - {fileID: -6216631799811913549}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -352,6 +54,323 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 864
+--- !u!114 &-6236428226665814823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SYSTEM/Victory
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SYSTEM/Victory
+  Guid:
+    Data1: 489811731
+    Data2: 1102939992
+    Data3: -492922486
+    Data4: -1028315751
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
+--- !u!114 &-6216631799811913549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639177634447545255
+  FileSizes:
+  - Name: Desktop
+    Value: 2681856
+  Exists: 1
+--- !u!114 &-6202562121853821046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ROBOT MOVEMENT/MetalFootsteps
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/ROBOT MOVEMENT/MetalFootsteps
+  Guid:
+    Data1: -1369528406
+    Data2: 1137088061
+    Data3: -1250271872
+    Data4: -372078527
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &-6141621580897794090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FIGHT SOUNDS/HitBlockSound
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/FIGHT SOUNDS/HitBlockSound
+  Guid:
+    Data1: -694287552
+    Data2: 1161297347
+    Data3: 1230721980
+    Data4: -800206706
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 680
+--- !u!114 &-5973825265436077599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/BackgroundLoopCombat
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUSIC/BackgroundLoopCombat
+  Guid:
+    Data1: 2101881089
+    Data2: 1250442526
+    Data3: -977405822
+    Data4: 687034324
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 66800
+--- !u!114 &-4953350871699969177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FIGHT SOUNDS/HeavySwing
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/FIGHT SOUNDS/HeavySwing
+  Guid:
+    Data1: 80111604
+    Data2: 1278950671
+    Data3: -1278862410
+    Data4: -1872326983
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 914
+--- !u!114 &-4413487776183091125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BIGMEANGUY/BigMeanGuyFallAfterKO
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/BIGMEANGUY/BigMeanGuyFallAfterKO
+  Guid:
+    Data1: -141018976
+    Data2: 1336140411
+    Data3: -1024533111
+    Data4: -1650779997
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2150
+--- !u!114 &-4372437096360549424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Comic/PageTurning
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Comic/PageTurning
+  Guid:
+    Data1: -470762222
+    Data2: 1120057980
+    Data3: 1071457167
+    Data4: -1839094469
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1200
+--- !u!114 &-3245934057231809485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/LOCATION/Electric
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/LOCATION/Electric
+  Guid:
+    Data1: -400640201
+    Data2: 1148189915
+    Data3: 661037463
+    Data4: 299587060
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &-3032132111602393670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/MenuLoop
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUSIC/MenuLoop
+  Guid:
+    Data1: -18531533
+    Data2: 1234679343
+    Data3: -78544965
+    Data4: 1002663450
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 60400
+--- !u!114 &-1845841257236103366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/MenuButtonHover
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/MenuButtonHover
+  Guid:
+    Data1: -425765352
+    Data2: 1126044758
+    Data3: -594694239
+    Data4: 785332063
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 230
+--- !u!114 &-1104717377980207749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/MenuButtonClick
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/MenuButtonClick
+  Guid:
+    Data1: 1542458838
+    Data2: 1321502921
+    Data3: 360063128
+    Data4: -455059350
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 235
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,46 +384,38 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
   EditorBanks:
-  - {fileID: 5558592803170237360}
-  - {fileID: -2814450495734041432}
+  - {fileID: 1181350640990290293}
+  - {fileID: -6216631799811913549}
   EditorEvents:
-  - {fileID: 5578036645139878025}
-  - {fileID: -2288725399686547728}
-  - {fileID: -2418123501237746030}
-  - {fileID: -6475748230059386169}
-  - {fileID: 5404313197160550180}
-  - {fileID: 2417237419935565936}
-  - {fileID: -1446174288693633373}
-  - {fileID: -4461895392642485058}
-  - {fileID: -5883941328577359406}
-  - {fileID: -9133263061963448494}
-  - {fileID: -6644849315482544795}
-  - {fileID: 8142683877141241517}
-  - {fileID: 8766653100475530379}
-  - {fileID: 7121124712322262951}
-  - {fileID: 3585464771635790735}
-  - {fileID: -6312993863383881749}
-  - {fileID: 4229444828210251878}
-  - {fileID: 8854991975435484999}
-  - {fileID: -4910906353810388144}
-  - {fileID: 7999069196173714463}
-  - {fileID: -51582812603984279}
-  - {fileID: -4912792013871877430}
+  - {fileID: -5973825265436077599}
+  - {fileID: -4372437096360549424}
+  - {fileID: -6236428226665814823}
+  - {fileID: -1845841257236103366}
+  - {fileID: -3032132111602393670}
+  - {fileID: -3245934057231809485}
+  - {fileID: -6141621580897794090}
+  - {fileID: 4836631116143235175}
+  - {fileID: 8363490781250747737}
+  - {fileID: 4472230674293893424}
+  - {fileID: 8487032077551397309}
+  - {fileID: -7930175498654894818}
+  - {fileID: 7332625461825056700}
+  - {fileID: -4413487776183091125}
+  - {fileID: -6202562121853821046}
+  - {fileID: 815986222518952419}
+  - {fileID: 6557915418048108443}
+  - {fileID: 6527589748451404189}
+  - {fileID: -1104717377980207749}
+  - {fileID: -4953350871699969177}
+  - {fileID: -7017221501398659389}
+  - {fileID: 8718516726493382434}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2814450495734041432}
+  - {fileID: -6216631799811913549}
   StringsBanks:
-  - {fileID: 5558592803170237360}
+  - {fileID: 1181350640990290293}
   cacheVersion: 131859
-<<<<<<< HEAD
-<<<<<<< HEAD
   cacheTime: 639177634447570414
-=======
-  cacheTime: 639177633666296753
->>>>>>> 0b8387f (Cutscene)
-=======
-  cacheTime: 639177633666296753
->>>>>>> origin/NEW_DORIAN
   SerializableEventsDict:
   - key: event:/MUSIC/BackgroundLoopCombat
     index: 0
@@ -450,7 +461,7 @@ MonoBehaviour:
     index: 20
   - key: event:/BIGMEANGUY/BigMeanGuyLightHit
     index: 21
---- !u!114 &2417237419935565936
+--- !u!114 &815986222518952419
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -460,105 +471,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/LOCATION/Electric
+  m_Name: event:/ROBOT MOVEMENT/RobotJumping
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/LOCATION/Electric
+  Path: event:/ROBOT MOVEMENT/RobotJumping
   Guid:
-    Data1: -400640201
-    Data2: 1148189915
-    Data3: 661037463
-    Data4: 299587060
+    Data1: -118821181
+    Data2: 1272440405
+    Data3: -610016339
+    Data4: 1994015788
   Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2000
---- !u!114 &3585464771635790735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ROBOT MOVEMENT/MetalFootsteps
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/ROBOT MOVEMENT/MetalFootsteps
-  Guid:
-    Data1: -1369528406
-    Data2: 1137088061
-    Data3: -1250271872
-    Data4: -372078527
-  Banks:
-  - {fileID: -2814450495734041432}
+  - {fileID: -6216631799811913549}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 500
---- !u!114 &4229444828210251878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BIGMEANGUY/BigMeanGuyHeavyHit
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/BIGMEANGUY/BigMeanGuyHeavyHit
-  Guid:
-    Data1: -677636654
-    Data2: 1083884972
-    Data3: 1176728222
-    Data4: 1112162606
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1030
---- !u!114 &5404313197160550180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUSIC/MenuLoop
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/MUSIC/MenuLoop
-  Guid:
-    Data1: -18531533
-    Data2: 1234679343
-    Data3: -78544965
-    Data4: 1002663450
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 60400
---- !u!114 &5558592803170237360
+  Length: 365
+--- !u!114 &1181350640990290293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -573,20 +503,12 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-<<<<<<< HEAD
-<<<<<<< HEAD
   lastModified: 639177634447570414
-=======
-  lastModified: 639177633666296753
->>>>>>> 0b8387f (Cutscene)
-=======
-  lastModified: 639177633666296753
->>>>>>> origin/NEW_DORIAN
   FileSizes:
   - Name: Desktop
     Value: 1860
   Exists: 1
---- !u!114 &5578036645139878025
+--- !u!114 &4472230674293893424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -596,51 +518,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUSIC/BackgroundLoopCombat
+  m_Name: event:/LOCATION/New Event
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/MUSIC/BackgroundLoopCombat
+  Path: event:/LOCATION/New Event
   Guid:
-    Data1: 2101881089
-    Data2: 1250442526
-    Data3: -977405822
-    Data4: 687034324
+    Data1: -982744459
+    Data2: 1291543015
+    Data3: -98002804
+    Data4: -1575566359
   Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 66800
---- !u!114 &7121124712322262951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BIGMEANGUY/BigMeanGuyFallAfterKO
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/BIGMEANGUY/BigMeanGuyFallAfterKO
-  Guid:
-    Data1: -141018976
-    Data2: 1336140411
-    Data3: -1024533111
-    Data4: -1650779997
-  Banks:
-  - {fileID: -2814450495734041432}
+  - {fileID: -6216631799811913549}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2150
---- !u!114 &7999069196173714463
+  Length: 0
+--- !u!114 &4836631116143235175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -650,78 +545,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/FIGHT SOUNDS/HeavySwing
+  m_Name: event:/FIGHT SOUNDS/LightSwing
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/FIGHT SOUNDS/HeavySwing
+  Path: event:/FIGHT SOUNDS/LightSwing
   Guid:
-    Data1: 80111604
-    Data2: 1278950671
-    Data3: -1278862410
-    Data4: -1872326983
+    Data1: 1447665517
+    Data2: 1274041496
+    Data3: -1999713621
+    Data4: 1397818486
   Banks:
-  - {fileID: -2814450495734041432}
+  - {fileID: -6216631799811913549}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 914
---- !u!114 &8142683877141241517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/FIGHT SOUNDS/HeavyHit
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/FIGHT SOUNDS/HeavyHit
-  Guid:
-    Data1: 730568066
-    Data2: 1311395990
-    Data3: -1067953257
-    Data4: -1375228523
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1200
---- !u!114 &8766653100475530379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/FIGHT SOUNDS/LightHit
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/FIGHT SOUNDS/LightHit
-  Guid:
-    Data1: 119253136
-    Data2: 1249122951
-    Data3: -1548406852
-    Data4: -49108239
-  Banks:
-  - {fileID: -2814450495734041432}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 490
---- !u!114 &8854991975435484999
+  Length: 456
+--- !u!114 &6527589748451404189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -740,7 +581,7 @@ MonoBehaviour:
     Data3: -2119459405
     Data4: -366680109
   Banks:
-  - {fileID: -2814450495734041432}
+  - {fileID: -6216631799811913549}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -748,3 +589,138 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1031
+--- !u!114 &6557915418048108443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BIGMEANGUY/BigMeanGuyHeavyHit
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/BIGMEANGUY/BigMeanGuyHeavyHit
+  Guid:
+    Data1: -677636654
+    Data2: 1083884972
+    Data3: 1176728222
+    Data4: 1112162606
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1030
+--- !u!114 &7332625461825056700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FIGHT SOUNDS/LightHit
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/FIGHT SOUNDS/LightHit
+  Guid:
+    Data1: 119253136
+    Data2: 1249122951
+    Data3: -1548406852
+    Data4: -49108239
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 490
+--- !u!114 &8363490781250747737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SYSTEM/Defeat
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SYSTEM/Defeat
+  Guid:
+    Data1: -69526159
+    Data2: 1236836241
+    Data3: -297138273
+    Data4: -2123355843
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1320
+--- !u!114 &8487032077551397309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FIGHT SOUNDS/FallAfterKO
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/FIGHT SOUNDS/FallAfterKO
+  Guid:
+    Data1: -1581881215
+    Data2: 1183311263
+    Data3: -574945627
+    Data4: -611158342
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &8718516726493382434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BIGMEANGUY/BigMeanGuyLightHit
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/BIGMEANGUY/BigMeanGuyLightHit
+  Guid:
+    Data1: 2067676671
+    Data2: 1156639547
+    Data3: 1909873289
+    Data4: 159797367
+  Banks:
+  - {fileID: -6216631799811913549}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 800
