@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{d288ed52-1235-4f25-be4a-1ee020ba0250}">
+		<property name="assetPath">
+			<value>Robot_Landing.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.86399999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{86935841-fa2b-4caf-97b1-d17308ad5162}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EventFolder" id="{9a014dbd-25cd-40e4-8a15-7719e5f6a973}">
+		<property name="name">
+			<value>BIGMEANGUY</value>
+		</property>
+		<relationship name="folder">
+			<destination>{02a6221c-c77a-4439-9814-87920f5583f0}</destination>
+		</relationship>
+	</object>
+</objects>
