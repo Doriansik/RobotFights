@@ -3,6 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(EnemyEnergy))]
 public class RobotMovement : MonoBehaviour, IAttacker
 {
+    #region Constants
+    private const float DistanceEpsilon = 0.001f;
+    private const float ZeroFloat = 0f;
+    #endregion
+
+    #region Serialized Fields
     [SerializeField] private Transform target;
     [SerializeField] private float moveSpeed = 2.5f;
     [SerializeField] private float attackDistance = 1.6f;
@@ -11,17 +17,21 @@ public class RobotMovement : MonoBehaviour, IAttacker
     [SerializeField] private float rotateSpeed = 12f;
     [SerializeField] private float normalSpeedMultiplier = 1f;
     [SerializeField] private float exhaustedSpeedMultiplier = 0.5f;
-    [SerializeField] private float zeroFloatValue = 0f;
     [SerializeField] private Animator animator;
     [SerializeField] private RobotCombat combatModule;
     [SerializeField] private EnemyEnergy enemyEnergy;
+    #endregion
 
+    #region Private Fields
     private Rigidbody rb;
     private bool isAttackingRole;
-    private const float DistanceEpsilon = 0.001f;
+    #endregion
 
+    #region Properties
     public GameObject GameObject => gameObject;
+    #endregion
 
+    #region Unity Lifecycle
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -44,7 +54,7 @@ public class RobotMovement : MonoBehaviour, IAttacker
         if (!target) return;
 
         Vector3 toTarget = target.position - transform.position;
-        toTarget.y = zeroFloatValue;
+        toTarget.y = ZeroFloat;
         float dist = toTarget.magnitude;
 
         if (!isAttackingRole && AttackCoordinator.Instance != null && dist <= tokenRequestDistance)
@@ -74,9 +84,12 @@ public class RobotMovement : MonoBehaviour, IAttacker
             combatModule.TryAttack();
         }
     }
+    #endregion
 
+    #region Methods
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
     }
+    #endregion
 }

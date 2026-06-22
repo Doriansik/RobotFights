@@ -1,31 +1,49 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(HitboxManager), typeof(PlayerEnergy))]
+[RequireComponent(typeof(HitboxManager), typeof(PlayerEnergy), typeof(PlayerHealth))]
 public class CombatController : MonoBehaviour
 {
-    public AttackData NeutralLightStartNode;
-    public AttackData NeutralHeavyStartNode;
-    public float InputBufferDuration;
-    public float AttackCooldown;
+    #region Configuration
+    [SerializeField] private AttackData neutralLightStartNode;
+    [SerializeField] private AttackData neutralHeavyStartNode;
+    [SerializeField] private float inputBufferDuration;
+    [SerializeField] private float attackCooldown;
+    #endregion
 
-    public InputActionReference LightAttackAction;
-    public InputActionReference HeavyAttackAction;
+    #region Input References
+    [SerializeField] private InputActionReference lightAttackAction;
+    [SerializeField] private InputActionReference heavyAttackAction;
+    #endregion
 
+    #region Properties
+    public event Action OnDamageTaken;
+
+    public AttackData NeutralLightStartNode => neutralLightStartNode;
+    public AttackData NeutralHeavyStartNode => neutralHeavyStartNode;
+    public float AttackCooldown => attackCooldown;
     public ICombatState CurrentState { get; private set; }
     public InputBuffer CombatInputBuffer { get; private set; }
     public Animator CharacterAnimator { get; private set; }
     public HitboxManager HitboxExecutor { get; private set; }
     public PlayerEnergy EnergyManager { get; private set; }
     public float LastAttackEndTime { get; private set; }
+    #endregion
 
+    #region Private Fields
+    private PlayerHealth playerHealth;
+    #endregion
+
+    #region Unity Lifecycle
     private void Awake()
     {
-        CombatInputBuffer = new InputBuffer(InputBufferDuration);
+        CombatInputBuffer = new InputBuffer(inputBufferDuration);
         CharacterAnimator = GetComponentInChildren<Animator>();
         HitboxExecutor = GetComponent<HitboxManager>();
         EnergyManager = GetComponent<PlayerEnergy>();
-        LastAttackEndTime = -AttackCooldown;
+        playerHealth = GetComponent<PlayerHealth>();
+        LastAttackEndTime = -attackCooldown;
     }
 
     private void Start()
@@ -35,29 +53,45 @@ public class CombatController : MonoBehaviour
 
     private void OnEnable()
     {
-        LightAttackAction?.action.Enable();
-        HeavyAttackAction?.action.Enable();
+        lightAttackAction?.action.Enable();
+        heavyAttackAction?.action.Enable();
+
+        if (playerHealth != null)
+        {
+            playerHealth.OnDamageTaken += HandleDamageTaken;
+        }
     }
 
     private void OnDisable()
     {
-        LightAttackAction?.action.Disable();
-        HeavyAttackAction?.action.Disable();
+        lightAttackAction?.action.Disable();
+        heavyAttackAction?.action.Disable();
+
+        if (playerHealth != null)
+        {
+            playerHealth.OnDamageTaken -= HandleDamageTaken;
+        }
     }
 
     private void Update()
     {
-        if (LightAttackAction != null && LightAttackAction.action.WasPressedThisFrame())
+        HandleInput();
+        CurrentState?.Execute();
+    }
+    #endregion
+
+    #region State Management & Logic
+    private void HandleInput()
+    {
+        if (lightAttackAction != null && lightAttackAction.action.WasPressedThisFrame())
         {
             CombatInputBuffer.RegisterInput(AttackType.Light);
         }
 
-        if (HeavyAttackAction != null && HeavyAttackAction.action.WasPressedThisFrame())
+        if (heavyAttackAction != null && heavyAttackAction.action.WasPressedThisFrame())
         {
             CombatInputBuffer.RegisterInput(AttackType.Heavy);
         }
-
-        CurrentState?.Execute();
     }
 
     public void ChangeState(ICombatState newState)
@@ -71,4 +105,10 @@ public class CombatController : MonoBehaviour
     {
         LastAttackEndTime = Time.time;
     }
+
+    private void HandleDamageTaken()
+    {
+        ChangeState(new HitState(this));
+    }
+    #endregion
 }
