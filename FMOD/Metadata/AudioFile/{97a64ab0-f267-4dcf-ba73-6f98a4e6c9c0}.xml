@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{97a64ab0-f267-4dcf-ba73-6f98a4e6c9c0}">
+		<property name="assetPath">
+			<value>HeavHit.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.91428571428571426</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{86935841-fa2b-4caf-97b1-d17308ad5162}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -4,10 +4,21 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
 
+    [SerializeField] private GameObject levelSelectorPanel;
+
     public void OnStartGame()
     {
         SceneManager.LoadScene(1);
-        Time.timeScale = 1.0f;
+        Debug.Log("Working");
+        Time.timeScale = 0f;
+    }
+
+    public void OnLevelSelectorOn()
+    {
+        if(levelSelectorPanel != null)
+        {
+            levelSelectorPanel.SetActive(true);
+        }
     }
 
     public void OnCredits()

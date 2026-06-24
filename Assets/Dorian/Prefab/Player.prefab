@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &178576893728749891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1463124406188025815}
+  m_Layer: 7
+  m_Name: BloodSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1463124406188025815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178576893728749891}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.467, z: -0.078}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8642305558138096793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735358809297576417
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,6 +96,10 @@ GameObject:
   - component: {fileID: 3304470853911386596}
   - component: {fileID: 8048179894739198336}
   - component: {fileID: 41020005521628944}
+  - component: {fileID: 3453265537209027729}
+  - component: {fileID: 4719294268923460419}
+  - component: {fileID: 4401801736475398069}
+  - component: {fileID: 2600780576479825678}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -91,6 +126,8 @@ Transform:
   - {fileID: 5156680080522357305}
   - {fileID: 7207118228211933121}
   - {fileID: 7546872451733787489}
+  - {fileID: 1215354927887710502}
+  - {fileID: 1463124406188025815}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!136 &8530470490158745147
@@ -141,7 +178,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!114 &8740041365634898854
 MonoBehaviour:
@@ -157,8 +194,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHp: 100
   deathDestroyDelay: 3
-  bloodEffectPrefab: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
-  bloodEffectSpawnPoint: {fileID: 5414724461673008432}
 --- !u!114 &613265818168082027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   moveSpeed: 3
+  backwardSpeedMultiplier: 1
   jumpForce: 5
   rotateSpeed: 10
   rotationRightY: 90
@@ -183,10 +219,10 @@ MonoBehaviour:
   colliderCenterMultiplier: 2
   normalSpeedMultiplier: 1
   exhaustedSpeedMultiplier: 0.5
-  zeroFloatValue: 0
   actionCrouch: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   actionMove: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   actionJump: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  targetOpponent: {fileID: 0}
 --- !u!114 &2149653807344824096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,10 +253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HitboxManager
   Configuration: {fileID: 11400000, guid: f9fd87d3340564b4898c2bc3d79354f8, type: 2}
   DamageCollider: {fileID: 6855333660713434256}
-  hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
-  hitEffectSpawnPoint: {fileID: 2502426371299929699}
-  cameraShakeStress: 0.04
-  hitStopDuration: 0.05
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &8048179894739198336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,12 +268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9ccd468e0f73c4ea37907702583b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CombatController
-  NeutralLightStartNode: {fileID: 11400000, guid: 2bb2b7542f13cf348b2b2f19ca219b89, type: 2}
-  NeutralHeavyStartNode: {fileID: 11400000, guid: 4c42f38c171d3754f9569c15f88f2218, type: 2}
-  InputBufferDuration: 0.5
-  AttackCooldown: 0.2
-  LightAttackAction: {fileID: 8438725535695441880, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  HeavyAttackAction: {fileID: 3263014902993649633, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  neutralLightStartNode: {fileID: 11400000, guid: 2bb2b7542f13cf348b2b2f19ca219b89, type: 2}
+  neutralHeavyStartNode: {fileID: 11400000, guid: 4c42f38c171d3754f9569c15f88f2218, type: 2}
+  inputBufferDuration: 1
+  attackCooldown: 0.3
+  lightAttackAction: {fileID: 8438725535695441880, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  heavyAttackAction: {fileID: 3263014902993649633, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!114 &41020005521628944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +290,70 @@ MonoBehaviour:
   energyRegenRate: 15
   minEnergyToRecover: 20
   emptyEnergyValue: 0
+--- !u!114 &3453265537209027729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855165041058684021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9741a4802f387cb4d9c421325973e2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFeedbackManager
+  hitboxManager: {fileID: 3304470853911386596}
+  hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
+  cameraShakeStress: 0.11
+  hitStopDuration: 0.1
+  effectDestroyDelay: 2
+--- !u!114 &4719294268923460419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855165041058684021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1201ae1fe0e1f00458f827fcce9940e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDamageEffectSpawner
+  bloodEffectPrefab: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
+  effectDestroyTime: 2
+  bloodSpawnPoint: {fileID: 1215354927887710502}
+--- !u!114 &4401801736475398069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855165041058684021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9741a4802f387cb4d9c421325973e2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFeedbackManager
+  hitboxManager: {fileID: 3304470853911386596}
+  hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
+  cameraShakeStress: 0.11
+  hitStopDuration: 0.1
+  effectDestroyDelay: 2
+--- !u!114 &2600780576479825678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855165041058684021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1201ae1fe0e1f00458f827fcce9940e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDamageEffectSpawner
+  bloodEffectPrefab: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
+  effectDestroyTime: 2
+  bloodSpawnPoint: {fileID: 1463124406188025815}
 --- !u!1 &4615409986769542967
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +518,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8642305558138096793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8082315297944533396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1215354927887710502}
+  m_Layer: 7
+  m_Name: BloodSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1215354927887710502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8082315297944533396}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.467, z: -0.078}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8642305558138096793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7096284342370837867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -478,8 +608,63 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -1237892347586123680, guid: fc18ad7e925046d448da8bd48da237b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8443610621480432879}
+    - targetCorrespondingSourceObject: {fileID: -1237892347586123680, guid: fc18ad7e925046d448da8bd48da237b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1185571642388391804}
   m_SourcePrefab: {fileID: 100100000, guid: fc18ad7e925046d448da8bd48da237b4, type: 3}
+--- !u!1 &912276295526272267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1237892347586123680, guid: fc18ad7e925046d448da8bd48da237b4, type: 3}
+  m_PrefabInstance: {fileID: 7096284342370837867}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &8443610621480432879
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912276295526272267}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!64 &1185571642388391804
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912276295526272267}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!4 &7345837732822991488 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc18ad7e925046d448da8bd48da237b4, type: 3}

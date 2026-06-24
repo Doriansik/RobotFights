@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{4377e578-e8a4-4800-88a0-7cf1afe892c6}">
+		<property name="assetPath">
+			<value>HeavyMetalCombat.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>68.33632653061224</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{86935841-fa2b-4caf-97b1-d17308ad5162}</destination>
+		</relationship>
+	</object>
+</objects>

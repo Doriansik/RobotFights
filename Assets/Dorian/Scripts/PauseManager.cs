@@ -47,6 +47,7 @@ public class PauseManager : MonoBehaviour
 
     public void OnQuitGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }

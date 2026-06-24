@@ -3,40 +3,49 @@ using System;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
+    #region Events
     public event Action OnDamageTaken;
+    public event Action<Vector3> OnDamageTakenWithPosition;
+    #endregion
 
+    #region Properties
     public int MaxHp => maxHp;
     public int CurrentHp => currentHp;
+    #endregion
 
+    #region Serialized Fields
     [SerializeField] private int maxHp = 100;
+    #endregion
 
-    [Header("Effects")]
-    [SerializeField] private GameObject bloodEffectPrefab;
-    [SerializeField] private Transform bloodEffectSpawnPoint;
-
+    #region Private Fields
     private int currentHp;
+    private readonly int minHealth = 0;
+    #endregion
 
+    #region Unity Lifecycle
     private void Awake()
     {
         currentHp = maxHp;
     }
+    #endregion
 
-    public void TakeDamage(int damage)
+    #region Health Logic
+    public void TakeDamage(int damage, Vector3 impactPosition)
     {
-        SpawnBloodEffect();
         OnDamageTaken?.Invoke();
+        OnDamageTakenWithPosition?.Invoke(impactPosition);
 
-        if (damage <= 0 || currentHp <= 0) return;
+        if (damage <= minHealth || currentHp <= minHealth) return;
 
         currentHp -= damage;
-        currentHp = Mathf.Max(currentHp, 0);
+        currentHp = Mathf.Max(currentHp, minHealth);
 
         if (EnemyHPUIManager.Instance != null)
         {
             EnemyHPUIManager.Instance.UpdateHp(this, currentHp);
         }
 
-        if (currentHp == 0)
+        if (currentHp == minHealth)
         {
             Die();
         }
@@ -46,14 +55,5 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         Destroy(gameObject);
     }
-
-    private void SpawnBloodEffect()
-    {
-        if (bloodEffectPrefab != null)
-        {
-            Vector3 spawnPosition = bloodEffectSpawnPoint != null ? bloodEffectSpawnPoint.position : transform.position;
-            GameObject blood = Instantiate(bloodEffectPrefab, spawnPosition, Quaternion.identity);
-            Destroy(blood, 2f);
-        }
-    }
+    #endregion
 }
