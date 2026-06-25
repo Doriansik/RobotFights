@@ -4,25 +4,32 @@ using System;
 [RequireComponent(typeof(EnemyEnergy))]
 public class RobotCombat : MonoBehaviour
 {
-    public static event Action<GameObject, string, int> OnComboExecuted;
+    #region Constants
+    private const float CrossFadeDuration = 0.1f;
+    #endregion
 
+    #region Serialized Fields
     [SerializeField] private AttackDataStats[] comboSequence;
     [SerializeField] private float comboResetTime = 2.5f;
     [SerializeField] private Animator animator;
     [SerializeField] private Enemy enemyStats;
     [SerializeField] private EnemyEnergy enemyEnergy;
-    [SerializeField] private string robotName;
     [SerializeField] private float energyAmount;
 
     [SerializeField] private MeleeHitbox[] handHitboxes;
     [SerializeField] private CombatAnimationDispatcher animationDispatcher;
+    #endregion
 
+    #region Private Fields
     private int currentComboIndex;
-    private int totalComboCounter;
     private float lastAttackTime;
     private int activeAttackDamage;
-    private readonly int sequenceStartIndex = 0;
 
+    private readonly int sequenceStartIndex = 0;
+    private readonly int hitAnimationHash = Animator.StringToHash("HitReaction");
+    #endregion
+
+    #region Unity Lifecycle
     private void Awake()
     {
         if (!animator) animator = GetComponentInChildren<Animator>();
@@ -60,11 +67,18 @@ public class RobotCombat : MonoBehaviour
             animationDispatcher.OnHitboxDisableRequested -= DisableAttackHitboxes;
         }
     }
+    #endregion
 
+    #region Combat Logic
     private void HandleDamageTakenReaction()
     {
         ResetComboValues();
         DisableAttackHitboxes();
+
+        if (animator)
+        {
+            animator.CrossFade(hitAnimationHash, CrossFadeDuration);
+        }
     }
 
     private void EnableAttackHitboxes()
@@ -98,7 +112,6 @@ public class RobotCombat : MonoBehaviour
 
         enemyEnergy.ConsumeEnergy(energyAmount);
 
-        totalComboCounter++;
         activeAttackDamage = currentAttack.Damage;
 
         ExecuteAttack(currentAttack);
@@ -115,15 +128,11 @@ public class RobotCombat : MonoBehaviour
     private void ResetComboValues()
     {
         currentComboIndex = sequenceStartIndex;
-        totalComboCounter = sequenceStartIndex;
-
-        OnComboExecuted?.Invoke(gameObject, robotName, totalComboCounter);
     }
 
     private void ExecuteAttack(AttackDataStats attack)
     {
         if (animator) animator.SetTrigger(attack.AnimationTrigger);
-
-        OnComboExecuted?.Invoke(gameObject, robotName, totalComboCounter);
     }
+    #endregion
 }

@@ -33,7 +33,6 @@ public class VideoPlayerOFF : MonoBehaviour
 
             if (currentSecond > lastLoggedSecond)
             {
-                Debug.Log($"Up³ynê³o sekund: {currentSecond}");
                 lastLoggedSecond = currentSecond;
             }
 
