@@ -63,15 +63,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639177633666296753
+  FileSizes:
+  - Name: Desktop
+    Value: 2681856
+  Exists: 1
+--- !u!114 &-5350782855345408668
+>>>>>>> ce72512 (Scrum 1053)
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ROBOT MOVEMENT/RobotJumping
+  m_Name: event:/SYSTEM/Victory
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/ROBOT MOVEMENT/RobotJumping
+  Path: event:/SYSTEM/Victory
   Guid:
-    Data1: -118821181
-    Data2: 1272440405
-    Data3: -610016339
-    Data4: 1994015788
+    Data1: 489811731
+    Data2: 1102939992
+    Data3: -492922486
+    Data4: -1028315751
   Banks:
   - {fileID: -7135025156106860896}
   IsStream: 0
@@ -109,6 +130,26 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 1500
 --- !u!114 &-7260591640130237547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639178912767212168
+  FileSizes:
+  - Name: Desktop
+    Value: 2681856
+  Exists: 1
+--- !u!114 &-5350782855345408668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,12 +218,32 @@ MonoBehaviour:
   - {fileID: -7135025156106860896}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 864
 --- !u!114 &-4160990381381434196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639178912767217218
+  FileSizes:
+  - Name: Desktop
+    Value: 1860
+  Exists: 1
+--- !u!114 &-3308672502411394470
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,14 +327,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Comic/PageTurning
+  m_Name: event:/BIGMEANGUY/BigMeanGuyHeavyHit
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/Comic/PageTurning
+  Path: event:/BIGMEANGUY/BigMeanGuyHeavyHit
   Guid:
-    Data1: -470762222
-    Data2: 1120057980
-    Data3: 1071457167
-    Data4: -1839094469
+    Data1: -677636654
+    Data2: 1083884972
+    Data3: 1176728222
+    Data4: 1112162606
   Banks:
   - {fileID: -7135025156106860896}
   IsStream: 0
@@ -584,7 +645,7 @@ MonoBehaviour:
   - {fileID: -7135025156106860896}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
