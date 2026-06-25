@@ -272,8 +272,11 @@ MonoBehaviour:
   neutralHeavyStartNode: {fileID: 11400000, guid: 4c42f38c171d3754f9569c15f88f2218, type: 2}
   inputBufferDuration: 1
   attackCooldown: 0.3
+  perfectBlockWindow: 0
+  normalBlockDamageMultiplier: 0
   lightAttackAction: {fileID: 8438725535695441880, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   heavyAttackAction: {fileID: 3263014902993649633, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  blockAction: {fileID: 0}
 --- !u!114 &41020005521628944
 MonoBehaviour:
   m_ObjectHideFlags: 0

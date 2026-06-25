@@ -675,9 +675,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2656801625713466462, guid: db67350b21915b24a8812f4497b6be67, type: 3}
+      propertyPath: bloodEffectPrefab
+      value: 
+      objectReference: {fileID: 3730554696096925837, guid: ebabf1ad7e3f7e548b9cefa35dcd6370, type: 3}
     - target: {fileID: 5494827929839799491, guid: db67350b21915b24a8812f4497b6be67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.86
+      value: 5.39
       objectReference: {fileID: 0}
     - target: {fileID: 5494827929839799491, guid: db67350b21915b24a8812f4497b6be67, type: 3}
       propertyPath: m_LocalPosition.y
@@ -719,6 +723,10 @@ PrefabInstance:
       propertyPath: enemyManager
       value: 
       objectReference: {fileID: 2124693165}
+    - target: {fileID: 5805660561357446731, guid: db67350b21915b24a8812f4497b6be67, type: 3}
+      propertyPath: bloodEffectPrefab
+      value: 
+      objectReference: {fileID: 3730554696096925837, guid: ebabf1ad7e3f7e548b9cefa35dcd6370, type: 3}
     - target: {fileID: 7877879605837711466, guid: db67350b21915b24a8812f4497b6be67, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -4484,14 +4492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba504d75f6645f418b3d948cef56683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ComboUIManager
-  comboText: {fileID: 0}
-  displayDuration: 2
-  pulseScale: 1.6
-  pulseDuration: 0.3
-  hideTime: 0
-  lastComboValue: 0
-  currentActiveAttacker: {fileID: 0}
-  originalScale: {x: 0, y: 0, z: 0}
 --- !u!4 &1468135700
 Transform:
   m_ObjectHideFlags: 0
@@ -6232,8 +6232,85 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7756663599427985966, guid: 9a39b976bf5a83f4dbfb52a9eab30c4c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 831337325409522491}
+    - targetCorrespondingSourceObject: {fileID: 7756663599427985966, guid: 9a39b976bf5a83f4dbfb52a9eab30c4c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 831337325409522490}
+    - targetCorrespondingSourceObject: {fileID: 7756663599427985966, guid: 9a39b976bf5a83f4dbfb52a9eab30c4c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 831337325409522493}
   m_SourcePrefab: {fileID: 100100000, guid: 9a39b976bf5a83f4dbfb52a9eab30c4c, type: 3}
+--- !u!1 &831337325409522489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7756663599427985966, guid: 9a39b976bf5a83f4dbfb52a9eab30c4c, type: 3}
+  m_PrefabInstance: {fileID: 831337325409522488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &831337325409522490
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831337325409522489}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.27, y: 6.77, z: 1}
+  m_Center: {x: 1.44, y: 0, z: -13.46}
+--- !u!65 &831337325409522491
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831337325409522489}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &831337325409522493
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831337325409522489}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.27, y: 6.77, z: 1}
+  m_Center: {x: 1.44, y: 0, z: -4.16}
 --- !u!1001 &6749069702155002933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6250,6 +6327,14 @@ PrefabInstance:
       propertyPath: losePanel
       value: 
       objectReference: {fileID: 1666132659}
+    - target: {fileID: 2600780576479825678, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      propertyPath: bloodEffectPrefab
+      value: 
+      objectReference: {fileID: 3730554696096925837, guid: ebabf1ad7e3f7e548b9cefa35dcd6370, type: 3}
+    - target: {fileID: 3453265537209027729, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      propertyPath: hitEffectPrefab
+      value: 
+      objectReference: {fileID: 6763315980943595925, guid: 632d9aea39a982348a90746b9eda9ba2, type: 3}
     - target: {fileID: 3692899493655291625, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
       propertyPath: energySlider
       value: 
@@ -6258,6 +6343,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4401801736475398069, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      propertyPath: hitEffectPrefab
+      value: 
+      objectReference: {fileID: 6763315980943595925, guid: 632d9aea39a982348a90746b9eda9ba2, type: 3}
+    - target: {fileID: 4719294268923460419, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
+      propertyPath: bloodEffectPrefab
+      value: 
+      objectReference: {fileID: 3730554696096925837, guid: ebabf1ad7e3f7e548b9cefa35dcd6370, type: 3}
     - target: {fileID: 8048179894739198336, guid: 7826a86ba50cb5e42b987eb73128cce2, type: 3}
       propertyPath: blockAction
       value: 
