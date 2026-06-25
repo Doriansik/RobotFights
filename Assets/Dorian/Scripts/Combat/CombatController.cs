@@ -3,18 +3,25 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(HitboxManager), typeof(PlayerEnergy), typeof(PlayerHealth))]
-public class CombatController : MonoBehaviour
+public class CombatController : MonoBehaviour, IDamageMitigator
 {
+    #region Constants
+    private const int PerfectBlockDamage = 0;
+    #endregion
+
     #region Configuration
     [SerializeField] private AttackData neutralLightStartNode;
     [SerializeField] private AttackData neutralHeavyStartNode;
     [SerializeField] private float inputBufferDuration;
     [SerializeField] private float attackCooldown;
+    [SerializeField] private float perfectBlockWindow;
+    [SerializeField] private float normalBlockDamageMultiplier;
     #endregion
 
     #region Input References
     [SerializeField] private InputActionReference lightAttackAction;
     [SerializeField] private InputActionReference heavyAttackAction;
+    [SerializeField] private InputActionReference blockAction;
     #endregion
 
     #region Properties
@@ -28,6 +35,7 @@ public class CombatController : MonoBehaviour
     public Animator CharacterAnimator { get; private set; }
     public HitboxManager HitboxExecutor { get; private set; }
     public PlayerEnergy EnergyManager { get; private set; }
+    public InputActionReference BlockAction => blockAction;
     public float LastAttackEndTime { get; private set; }
     #endregion
 
@@ -55,6 +63,7 @@ public class CombatController : MonoBehaviour
     {
         lightAttackAction?.action.Enable();
         heavyAttackAction?.action.Enable();
+        blockAction?.action.Enable();
 
         if (playerHealth != null)
         {
@@ -66,6 +75,7 @@ public class CombatController : MonoBehaviour
     {
         lightAttackAction?.action.Disable();
         heavyAttackAction?.action.Disable();
+        blockAction?.action.Disable();
 
         if (playerHealth != null)
         {
@@ -92,6 +102,11 @@ public class CombatController : MonoBehaviour
         {
             CombatInputBuffer.RegisterInput(AttackType.Heavy);
         }
+
+        if (blockAction != null && blockAction.action.WasPressedThisFrame() && CurrentState is IdleState)
+        {
+            ChangeState(new BlockState(this));
+        }
     }
 
     public void ChangeState(ICombatState newState)
@@ -109,6 +124,23 @@ public class CombatController : MonoBehaviour
     private void HandleDamageTaken()
     {
         ChangeState(new HitState(this));
+    }
+
+    public void Mitigate(ref int damage)
+    {
+        if (CurrentState is BlockState blockState)
+        {
+            float blockDuration = Time.time - blockState.StartTime;
+
+            if (blockDuration <= perfectBlockWindow)
+            {
+                damage = PerfectBlockDamage;
+            }
+            else
+            {
+                damage = Mathf.RoundToInt(damage * normalBlockDamageMultiplier);
+            }
+        }
     }
     #endregion
 }

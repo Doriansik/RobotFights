@@ -26,20 +26,30 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public bool IsDead { get; private set; }
     #endregion
 
+    #region Private Fields
+    private IDamageMitigator damageMitigator;
+    #endregion
+
     #region Unity Lifecycle
     private void Awake()
     {
         CurrentHp = maxHp;
+        damageMitigator = GetComponent<IDamageMitigator>();
     }
     #endregion
 
     #region Methods
     public void TakeDamage(int damage, Vector3 impactPosition)
     {
-        OnDamageTaken?.Invoke();
-        OnDamageTakenWithPosition?.Invoke(impactPosition);
+        if (damageMitigator != null)
+        {
+            damageMitigator.Mitigate(ref damage);
+        }
 
         if (damage <= MinHealth || IsDead) return;
+
+        OnDamageTaken?.Invoke();
+        OnDamageTakenWithPosition?.Invoke(impactPosition);
 
         CurrentHp -= damage;
         OnHealthChanged?.Invoke(CurrentHp);
