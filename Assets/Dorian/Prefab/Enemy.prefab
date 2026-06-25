@@ -159,9 +159,12 @@ MonoBehaviour:
   normalSpeedMultiplier: 1
   exhaustedSpeedMultiplier: 0.5
 <<<<<<< HEAD
+<<<<<<< HEAD
   zeroFloatValue: 0
   animator: {fileID: 6022055512429962577}
 =======
+=======
+>>>>>>> origin/NEW_DORIAN
   animator: {fileID: 6499451339141080483}
 >>>>>>> 02b4d83 (HitReaction)
   combatModule: {fileID: 2542998183384044715}
@@ -196,6 +199,7 @@ MonoBehaviour:
   energyAmount: 15
   handHitboxes:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 4437082605653190471}
   - {fileID: 3200400528605445702}
   animationDispatcher: {fileID: 5593686099175964852}
@@ -204,6 +208,11 @@ MonoBehaviour:
   - {fileID: 2121905580070388424}
   animationDispatcher: {fileID: 633583902120311384}
 >>>>>>> 02b4d83 (HitReaction)
+=======
+  - {fileID: 8890208857680081748}
+  - {fileID: 2121905580070388424}
+  animationDispatcher: {fileID: 633583902120311384}
+>>>>>>> origin/NEW_DORIAN
 --- !u!114 &3283242066541618646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +390,12 @@ PrefabInstance:
       addedObject: {fileID: 6721261598674169077}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
       insertIndex: -1
+<<<<<<< HEAD
+=======
+      addedObject: {fileID: 6721261598674169077}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
+      insertIndex: -1
+>>>>>>> origin/NEW_DORIAN
       addedObject: {fileID: 633583902120311384}
     - targetCorrespondingSourceObject: {fileID: -7611597355151902790, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
 >>>>>>> 02b4d83 (HitReaction)
@@ -394,6 +409,15 @@ PrefabInstance:
 =======
       addedObject: {fileID: 2013976653895305111}
     - targetCorrespondingSourceObject: {fileID: -7611597355151902790, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
+<<<<<<< HEAD
+=======
+      insertIndex: -1
+      addedObject: {fileID: 1113583339270071071}
+    - targetCorrespondingSourceObject: {fileID: -7611597355151902790, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8890208857680081748}
+    - targetCorrespondingSourceObject: {fileID: 7529325446763960955, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
+>>>>>>> origin/NEW_DORIAN
       insertIndex: -1
       addedObject: {fileID: 1113583339270071071}
     - targetCorrespondingSourceObject: {fileID: -7611597355151902790, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
@@ -535,6 +559,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e0bd9a1ced0134fa2300db24cd79e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CombatAnimationDispatcher
+--- !u!114 &633583902120311384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547553452096316771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e0bd9a1ced0134fa2300db24cd79e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CombatAnimationDispatcher
 --- !u!4 &923972784815423449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7457645c719febe408fbdc0d6a88dc05, type: 3}
@@ -587,6 +623,45 @@ MonoBehaviour:
 <<<<<<< HEAD
   hitParticleSpawnPoint: {fileID: 3105957600794227709}
 =======
+  hitParticleSpawnPoint: {fileID: 7690585420173346259}
+--- !u!135 &1113583339270071071
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091369727865548680}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.25934273
+  m_Center: {x: -0.0066216565, y: 0.00000034616096, z: 0.017864492}
+--- !u!114 &8890208857680081748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091369727865548680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6194ea7373dab4c46846a38d98e4bd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeHitbox
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
+  hitEffectDestroyTime: 2
   hitParticleSpawnPoint: {fileID: 7690585420173346259}
 --- !u!135 &1113583339270071071
 SphereCollider:
@@ -715,4 +790,7 @@ MonoBehaviour:
   hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
   hitEffectDestroyTime: 2
   hitParticleSpawnPoint: {fileID: 7690585420173346259}
+<<<<<<< HEAD
 >>>>>>> 02b4d83 (HitReaction)
+=======
+>>>>>>> origin/NEW_DORIAN

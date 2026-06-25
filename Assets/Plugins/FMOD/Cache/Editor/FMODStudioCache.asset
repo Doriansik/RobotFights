@@ -1,10 +1,14 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &-7930175498654894818
 =======
 --- !u!114 &-7963320651182145881
 >>>>>>> ce72512 (Scrum 1053)
+=======
+--- !u!114 &-7963320651182145881
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,6 +18,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Name: event:/FIGHT SOUNDS/HeavyHit
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
@@ -35,6 +40,17 @@ MonoBehaviour:
     Data3: 661037463
     Data4: 299587060
   Banks:
+=======
+  m_Name: event:/LOCATION/Electric
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/LOCATION/Electric
+  Guid:
+    Data1: -400640201
+    Data2: 1148189915
+    Data3: 661037463
+    Data4: 299587060
+  Banks:
+>>>>>>> origin/NEW_DORIAN
   - {fileID: -7135025156106860896}
   IsStream: 1
   Is3D: 0
@@ -144,7 +160,10 @@ MonoBehaviour:
     Data4: -49108239
   Banks:
   - {fileID: -7135025156106860896}
+<<<<<<< HEAD
 >>>>>>> ce72512 (Scrum 1053)
+=======
+>>>>>>> origin/NEW_DORIAN
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -152,9 +171,12 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
 <<<<<<< HEAD
+<<<<<<< HEAD
   Length: 1200
 --- !u!114 &-7017221501398659389
 =======
+=======
+>>>>>>> origin/NEW_DORIAN
   Length: 490
 --- !u!114 &-7135025156106860896
 MonoBehaviour:
@@ -177,7 +199,10 @@ MonoBehaviour:
     Value: 2681856
   Exists: 1
 --- !u!114 &-5350782855345408668
+<<<<<<< HEAD
 >>>>>>> ce72512 (Scrum 1053)
+=======
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,10 +222,14 @@ MonoBehaviour:
     Data4: -2005648109
   Banks:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: -6216631799811913549}
 =======
   - {fileID: -7135025156106860896}
 >>>>>>> ce72512 (Scrum 1053)
+=======
+  - {fileID: -7135025156106860896}
+>>>>>>> origin/NEW_DORIAN
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -208,6 +237,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 864
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!114 &-6236428226665814823
 MonoBehaviour:
@@ -449,6 +479,9 @@ MonoBehaviour:
 =======
 --- !u!114 &-4160990381381434196
 >>>>>>> ce72512 (Scrum 1053)
+=======
+--- !u!114 &-4160990381381434196
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -468,10 +501,14 @@ MonoBehaviour:
     Data4: 1002663450
   Banks:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: -6216631799811913549}
 =======
   - {fileID: -7135025156106860896}
 >>>>>>> ce72512 (Scrum 1053)
+=======
+  - {fileID: -7135025156106860896}
+>>>>>>> origin/NEW_DORIAN
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -480,8 +517,11 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 60400
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &-1845841257236103366
 =======
+=======
+>>>>>>> origin/NEW_DORIAN
 --- !u!114 &-4042183095115969460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +543,10 @@ MonoBehaviour:
     Value: 1860
   Exists: 1
 --- !u!114 &-3308672502411394470
+<<<<<<< HEAD
 >>>>>>> ce72512 (Scrum 1053)
+=======
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -513,6 +556,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Name: event:/UI/MenuButtonHover
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
@@ -525,6 +569,8 @@ MonoBehaviour:
   Banks:
   - {fileID: -6216631799811913549}
 =======
+=======
+>>>>>>> origin/NEW_DORIAN
   m_Name: event:/FIGHT SOUNDS/HeavySwing
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
   Path: event:/FIGHT SOUNDS/HeavySwing
@@ -535,7 +581,10 @@ MonoBehaviour:
     Data4: -1872326983
   Banks:
   - {fileID: -7135025156106860896}
+<<<<<<< HEAD
 >>>>>>> ce72512 (Scrum 1053)
+=======
+>>>>>>> origin/NEW_DORIAN
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -543,12 +592,17 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
 <<<<<<< HEAD
+<<<<<<< HEAD
   Length: 230
 --- !u!114 &-1104717377980207749
 =======
   Length: 914
 --- !u!114 &-3306253825527725438
 >>>>>>> ce72512 (Scrum 1053)
+=======
+  Length: 914
+--- !u!114 &-3306253825527725438
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -558,6 +612,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Name: event:/UI/MenuButtonClick
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
@@ -570,6 +625,8 @@ MonoBehaviour:
   Banks:
   - {fileID: -6216631799811913549}
 =======
+=======
+>>>>>>> origin/NEW_DORIAN
   m_Name: event:/Comic/PageTurning
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
   Path: event:/Comic/PageTurning
@@ -580,7 +637,10 @@ MonoBehaviour:
     Data4: -1839094469
   Banks:
   - {fileID: -7135025156106860896}
+<<<<<<< HEAD
 >>>>>>> ce72512 (Scrum 1053)
+=======
+>>>>>>> origin/NEW_DORIAN
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -588,8 +648,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
 <<<<<<< HEAD
+<<<<<<< HEAD
   Length: 235
 =======
+=======
+>>>>>>> origin/NEW_DORIAN
   Length: 1200
 --- !u!114 &-3221085082046774809
 MonoBehaviour:
@@ -726,7 +789,10 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1320
+<<<<<<< HEAD
 >>>>>>> ce72512 (Scrum 1053)
+=======
+>>>>>>> origin/NEW_DORIAN
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,6 +806,7 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
   EditorBanks:
+<<<<<<< HEAD
 <<<<<<< HEAD
   - {fileID: 1181350640990290293}
   - {fileID: -6216631799811913549}
@@ -807,6 +874,40 @@ MonoBehaviour:
   cacheVersion: 131859
   cacheTime: 639177633666296753
 >>>>>>> ce72512 (Scrum 1053)
+=======
+  - {fileID: -4042183095115969460}
+  - {fileID: -7135025156106860896}
+  EditorEvents:
+  - {fileID: 5570413274153268421}
+  - {fileID: -3306253825527725438}
+  - {fileID: -7298353203707680321}
+  - {fileID: 8786136499367945355}
+  - {fileID: -4160990381381434196}
+  - {fileID: -7963320651182145881}
+  - {fileID: 3998756427038586215}
+  - {fileID: 6454727072509434923}
+  - {fileID: -1082183993509419848}
+  - {fileID: 2114173649795248178}
+  - {fileID: 8264342327264019251}
+  - {fileID: -1335143084746661949}
+  - {fileID: -7260591640130237547}
+  - {fileID: -2176204483363656725}
+  - {fileID: -7636616091471297148}
+  - {fileID: -7369762421300851122}
+  - {fileID: -3108907734070105936}
+  - {fileID: 2412270310404829072}
+  - {fileID: 8297967758358592063}
+  - {fileID: -3308672502411394470}
+  - {fileID: -5350782855345408668}
+  - {fileID: -3221085082046774809}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -7135025156106860896}
+  StringsBanks:
+  - {fileID: -4042183095115969460}
+  cacheVersion: 131859
+  cacheTime: 639177633666296753
+>>>>>>> origin/NEW_DORIAN
   SerializableEventsDict:
   - key: event:/MUSIC/BackgroundLoopCombat
     index: 0
@@ -853,10 +954,14 @@ MonoBehaviour:
   - key: event:/BIGMEANGUY/BigMeanGuyLightHit
     index: 21
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &815986222518952419
 =======
 --- !u!114 &2114173649795248178
 >>>>>>> ce72512 (Scrum 1053)
+=======
+--- !u!114 &2114173649795248178
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -866,6 +971,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Name: event:/ROBOT MOVEMENT/RobotJumping
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
@@ -889,12 +995,25 @@ MonoBehaviour:
   Banks:
   - {fileID: -7135025156106860896}
 >>>>>>> ce72512 (Scrum 1053)
+=======
+  m_Name: event:/LOCATION/New Event
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/LOCATION/New Event
+  Guid:
+    Data1: -982744459
+    Data2: 1291543015
+    Data3: -98002804
+    Data4: -1575566359
+  Banks:
+  - {fileID: -7135025156106860896}
+>>>>>>> origin/NEW_DORIAN
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+<<<<<<< HEAD
 <<<<<<< HEAD
   Length: 365
 --- !u!114 &1181350640990290293
@@ -976,6 +1095,10 @@ MonoBehaviour:
   Length: 0
 --- !u!114 &2412270310404829072
 >>>>>>> ce72512 (Scrum 1053)
+=======
+  Length: 0
+--- !u!114 &2412270310404829072
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -995,10 +1118,14 @@ MonoBehaviour:
     Data4: -366680109
   Banks:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: -6216631799811913549}
 =======
   - {fileID: -7135025156106860896}
 >>>>>>> ce72512 (Scrum 1053)
+=======
+  - {fileID: -7135025156106860896}
+>>>>>>> origin/NEW_DORIAN
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1007,10 +1134,14 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 1031
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &6557915418048108443
 =======
 --- !u!114 &3998756427038586215
 >>>>>>> ce72512 (Scrum 1053)
+=======
+--- !u!114 &3998756427038586215
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1020,6 +1151,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Name: event:/BIGMEANGUY/BigMeanGuyHeavyHit
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
@@ -1032,6 +1164,8 @@ MonoBehaviour:
   Banks:
   - {fileID: -6216631799811913549}
 =======
+=======
+>>>>>>> origin/NEW_DORIAN
   m_Name: event:/FIGHT SOUNDS/HitBlockSound
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
   Path: event:/FIGHT SOUNDS/HitBlockSound
@@ -1042,7 +1176,10 @@ MonoBehaviour:
     Data4: -800206706
   Banks:
   - {fileID: -7135025156106860896}
+<<<<<<< HEAD
 >>>>>>> ce72512 (Scrum 1053)
+=======
+>>>>>>> origin/NEW_DORIAN
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1050,12 +1187,17 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
 <<<<<<< HEAD
+<<<<<<< HEAD
   Length: 1030
 --- !u!114 &7332625461825056700
 =======
   Length: 680
 --- !u!114 &5570413274153268421
 >>>>>>> ce72512 (Scrum 1053)
+=======
+  Length: 680
+--- !u!114 &5570413274153268421
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1065,6 +1207,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Name: event:/FIGHT SOUNDS/LightHit
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
@@ -1085,6 +1228,8 @@ MonoBehaviour:
   Length: 490
 --- !u!114 &8363490781250747737
 =======
+=======
+>>>>>>> origin/NEW_DORIAN
   m_Name: event:/MUSIC/BackgroundLoopCombat
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
   Path: event:/MUSIC/BackgroundLoopCombat
@@ -1103,7 +1248,10 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 66800
 --- !u!114 &6454727072509434923
+<<<<<<< HEAD
 >>>>>>> ce72512 (Scrum 1053)
+=======
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1113,6 +1261,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Name: event:/SYSTEM/Defeat
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
@@ -1125,6 +1274,8 @@ MonoBehaviour:
   Banks:
   - {fileID: -6216631799811913549}
 =======
+=======
+>>>>>>> origin/NEW_DORIAN
   m_Name: event:/FIGHT SOUNDS/LightSwing
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
   Path: event:/FIGHT SOUNDS/LightSwing
@@ -1135,7 +1286,10 @@ MonoBehaviour:
     Data4: 1397818486
   Banks:
   - {fileID: -7135025156106860896}
+<<<<<<< HEAD
 >>>>>>> ce72512 (Scrum 1053)
+=======
+>>>>>>> origin/NEW_DORIAN
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1143,12 +1297,17 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
 <<<<<<< HEAD
+<<<<<<< HEAD
   Length: 1320
 --- !u!114 &8487032077551397309
 =======
   Length: 456
 --- !u!114 &8264342327264019251
 >>>>>>> ce72512 (Scrum 1053)
+=======
+  Length: 456
+--- !u!114 &8264342327264019251
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1168,10 +1327,14 @@ MonoBehaviour:
     Data4: -611158342
   Banks:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: -6216631799811913549}
 =======
   - {fileID: -7135025156106860896}
 >>>>>>> ce72512 (Scrum 1053)
+=======
+  - {fileID: -7135025156106860896}
+>>>>>>> origin/NEW_DORIAN
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1180,10 +1343,14 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 2000
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &8718516726493382434
 =======
 --- !u!114 &8297967758358592063
 >>>>>>> ce72512 (Scrum 1053)
+=======
+--- !u!114 &8297967758358592063
+>>>>>>> origin/NEW_DORIAN
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1193,6 +1360,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Name: event:/BIGMEANGUY/BigMeanGuyLightHit
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
@@ -1205,6 +1373,8 @@ MonoBehaviour:
   Banks:
   - {fileID: -6216631799811913549}
 =======
+=======
+>>>>>>> origin/NEW_DORIAN
   m_Name: event:/UI/MenuButtonClick
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
   Path: event:/UI/MenuButtonClick
@@ -1215,7 +1385,10 @@ MonoBehaviour:
     Data4: -455059350
   Banks:
   - {fileID: -7135025156106860896}
+<<<<<<< HEAD
 >>>>>>> ce72512 (Scrum 1053)
+=======
+>>>>>>> origin/NEW_DORIAN
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1223,8 +1396,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
 <<<<<<< HEAD
+<<<<<<< HEAD
   Length: 800
 =======
+=======
+>>>>>>> origin/NEW_DORIAN
   Length: 235
 --- !u!114 &8786136499367945355
 MonoBehaviour:
@@ -1253,4 +1429,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 230
+<<<<<<< HEAD
 >>>>>>> ce72512 (Scrum 1053)
+=======
+>>>>>>> origin/NEW_DORIAN
