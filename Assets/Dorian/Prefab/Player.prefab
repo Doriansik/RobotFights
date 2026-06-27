@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 8048179894739198336}
   - component: {fileID: 41020005521628944}
   - component: {fileID: 3453265537209027729}
-  - component: {fileID: 4719294268923460419}
   - component: {fileID: 4401801736475398069}
   - component: {fileID: 2600780576479825678}
   m_Layer: 7
@@ -272,11 +271,11 @@ MonoBehaviour:
   neutralHeavyStartNode: {fileID: 11400000, guid: 4c42f38c171d3754f9569c15f88f2218, type: 2}
   inputBufferDuration: 1
   attackCooldown: 0.3
-  perfectBlockWindow: 0
-  normalBlockDamageMultiplier: 0
+  perfectBlockWindow: 0.25
+  normalBlockDamageMultiplier: 0.5
   lightAttackAction: {fileID: 8438725535695441880, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   heavyAttackAction: {fileID: 3263014902993649633, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  blockAction: {fileID: 0}
+  blockAction: {fileID: 6817746321397947562, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!114 &41020005521628944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,25 +305,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitFeedbackManager
   hitboxManager: {fileID: 3304470853911386596}
-  hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
+  hitEffectPrefab: {fileID: 6763315980943595925, guid: 632d9aea39a982348a90746b9eda9ba2, type: 3}
   cameraShakeStress: 0.11
   hitStopDuration: 0.1
   effectDestroyDelay: 2
---- !u!114 &4719294268923460419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3855165041058684021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1201ae1fe0e1f00458f827fcce9940e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerDamageEffectSpawner
-  bloodEffectPrefab: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
-  effectDestroyTime: 2
-  bloodSpawnPoint: {fileID: 1215354927887710502}
 --- !u!114 &4401801736475398069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitFeedbackManager
   hitboxManager: {fileID: 3304470853911386596}
-  hitEffectPrefab: {fileID: 5304813051592061937, guid: a7ee7e8989b495f41861b1020c3a2114, type: 3}
+  hitEffectPrefab: {fileID: 6763315980943595925, guid: 632d9aea39a982348a90746b9eda9ba2, type: 3}
   cameraShakeStress: 0.11
   hitStopDuration: 0.1
   effectDestroyDelay: 2
@@ -354,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1201ae1fe0e1f00458f827fcce9940e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamageEffectSpawner
-  bloodEffectPrefab: {fileID: 5304813051592061937, guid: 831171e9730df3945acba3dfdb1842fa, type: 3}
+  bloodEffectPrefab: {fileID: 3730554696096925837, guid: ebabf1ad7e3f7e548b9cefa35dcd6370, type: 3}
   effectDestroyTime: 2
   bloodSpawnPoint: {fileID: 1463124406188025815}
 --- !u!1 &4615409986769542967

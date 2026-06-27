@@ -2,10 +2,12 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(EnemyEnergy))]
+[RequireComponent(typeof(Enemy))]
 public class RobotCombat : MonoBehaviour
 {
     #region Constants
     private const float CrossFadeDuration = 0.1f;
+    private const int SequenceStartIndex = 0;
     #endregion
 
     #region Serialized Fields
@@ -24,28 +26,40 @@ public class RobotCombat : MonoBehaviour
     private int currentComboIndex;
     private float lastAttackTime;
     private int activeAttackDamage;
-
-    private readonly int sequenceStartIndex = 0;
-    private readonly int hitAnimationHash = Animator.StringToHash("HitReaction");
+    private int hitAnimationHash;
     #endregion
 
     #region Unity Lifecycle
     private void Awake()
     {
-        if (!animator) animator = GetComponentInChildren<Animator>();
-        if (!enemyStats) enemyStats = GetComponent<Enemy>();
-        if (!enemyEnergy) enemyEnergy = GetComponent<EnemyEnergy>();
-
+        InitializeDependencies();
+        hitAnimationHash = Animator.StringToHash("HitReaction");
         ResetComboValues();
         lastAttackTime = -comboResetTime;
     }
 
     private void OnEnable()
     {
-        if (enemyStats)
-        {
-            enemyStats.OnDamageTaken += HandleDamageTakenReaction;
-        }
+        SubscribeEvents();
+    }
+
+    private void OnDisable()
+    {
+        UnsubscribeEvents();
+    }
+    #endregion
+
+    #region Initialization
+    private void InitializeDependencies()
+    {
+        if (!animator) animator = GetComponentInChildren<Animator>();
+        if (!enemyStats) enemyStats = GetComponent<Enemy>();
+        if (!enemyEnergy) enemyEnergy = GetComponent<EnemyEnergy>();
+    }
+
+    private void SubscribeEvents()
+    {
+        if (enemyStats) enemyStats.OnDamageTaken += HandleDamageTakenReaction;
 
         if (animationDispatcher)
         {
@@ -54,12 +68,9 @@ public class RobotCombat : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void UnsubscribeEvents()
     {
-        if (enemyStats)
-        {
-            enemyStats.OnDamageTaken -= HandleDamageTakenReaction;
-        }
+        if (enemyStats) enemyStats.OnDamageTaken -= HandleDamageTakenReaction;
 
         if (animationDispatcher)
         {
@@ -75,10 +86,7 @@ public class RobotCombat : MonoBehaviour
         ResetComboValues();
         DisableAttackHitboxes();
 
-        if (animator)
-        {
-            animator.CrossFade(hitAnimationHash, CrossFadeDuration);
-        }
+        if (animator) animator.CrossFade(hitAnimationHash, CrossFadeDuration);
     }
 
     private void EnableAttackHitboxes()
@@ -107,27 +115,29 @@ public class RobotCombat : MonoBehaviour
         AttackDataStats currentAttack = comboSequence[currentComboIndex];
 
         if (Time.time < lastAttackTime + currentAttack.CooldownBeforeNextAttack) return;
-
         if (!enemyEnergy.HasEnoughEnergy(energyAmount)) return;
 
         enemyEnergy.ConsumeEnergy(energyAmount);
-
         activeAttackDamage = currentAttack.Damage;
 
         ExecuteAttack(currentAttack);
-
-        currentComboIndex++;
-        if (currentComboIndex >= comboSequence.Length)
-        {
-            currentComboIndex = sequenceStartIndex;
-        }
+        AdvanceComboSequence();
 
         lastAttackTime = Time.time;
     }
 
+    private void AdvanceComboSequence()
+    {
+        currentComboIndex++;
+        if (currentComboIndex >= comboSequence.Length)
+        {
+            currentComboIndex = SequenceStartIndex;
+        }
+    }
+
     private void ResetComboValues()
     {
-        currentComboIndex = sequenceStartIndex;
+        currentComboIndex = SequenceStartIndex;
     }
 
     private void ExecuteAttack(AttackDataStats attack)
