@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 8048179894739198336}
   - component: {fileID: 41020005521628944}
   - component: {fileID: 3453265537209027729}
-  - component: {fileID: 4401801736475398069}
   - component: {fileID: 2600780576479825678}
   m_Layer: 7
   m_Name: Player
@@ -289,27 +288,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEnergy
   maxEnergy: 100
-  energyRegenRate: 15
-  minEnergyToRecover: 20
+  energyRegenRate: 1.5
+  minEnergyToRecover: 15
   emptyEnergyValue: 0
 --- !u!114 &3453265537209027729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3855165041058684021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9741a4802f387cb4d9c421325973e2d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HitFeedbackManager
-  hitboxManager: {fileID: 3304470853911386596}
-  hitEffectPrefab: {fileID: 6763315980943595925, guid: 632d9aea39a982348a90746b9eda9ba2, type: 3}
-  cameraShakeStress: 0.11
-  hitStopDuration: 0.1
-  effectDestroyDelay: 2
---- !u!114 &4401801736475398069
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -470,7 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUIManager
   playerHealth: {fileID: 8740041365634898854}
-  animator: {fileID: 0}
+  animator: {fileID: 3679868240645757178}
   player: {fileID: 613265818168082027}
   slider: {fileID: 0}
   losePanel: {fileID: 0}
@@ -652,6 +634,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!95 &3679868240645757178 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: fc18ad7e925046d448da8bd48da237b4, type: 3}
+  m_PrefabInstance: {fileID: 7096284342370837867}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7345837732822991488 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc18ad7e925046d448da8bd48da237b4, type: 3}

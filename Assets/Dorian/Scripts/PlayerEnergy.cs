@@ -20,25 +20,41 @@ public class PlayerEnergy : MonoBehaviour
         currentEnergy = maxEnergy;
     }
 
-    public void ConsumeEnergy(float amount)
+    private void Update()
     {
-        if (currentEnergy > emptyEnergyValue)
+        if (currentEnergy < maxEnergy)
         {
-            currentEnergy -= amount;
+            currentEnergy += energyRegenRate * Time.deltaTime;
 
-            if (currentEnergy <= emptyEnergyValue)
+            if (currentEnergy > maxEnergy)
             {
-                currentEnergy = emptyEnergyValue;
-                isExhausted = true;
+                currentEnergy = maxEnergy;
+            }
+
+            if (isExhausted && currentEnergy >= minEnergyToRecover)
+            {
+                isExhausted = false;
             }
 
             OnEnergyChanged?.Invoke(currentEnergy / maxEnergy);
         }
     }
 
-    public bool HasEnoughEnergy(float amount)
+    public void ConsumeEnergy(float amount)
     {
-        return currentEnergy >= amount && !isExhausted;
+        currentEnergy -= amount;
+
+        if (currentEnergy <= emptyEnergyValue)
+        {
+            currentEnergy = emptyEnergyValue;
+            isExhausted = true;
+        }
+
+        OnEnergyChanged?.Invoke(currentEnergy / maxEnergy);
     }
 
+    public bool HasEnoughEnergy(float amount)
+    {
+        return true;
+    }
 }

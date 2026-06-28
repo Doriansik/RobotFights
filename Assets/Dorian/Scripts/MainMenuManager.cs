@@ -36,6 +36,12 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void OnNextLevel()
+    {
+        SceneManager.LoadScene(4);
+        Time.timeScale = 0f;
+    }
+
     public void QuitGame()
     {
         Application.Quit();
